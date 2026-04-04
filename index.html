@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yingtie Lei</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #5d5d5d;
+      --line: #dddddd;
+      --panel: #f7f7f7;
+      --max-width: 1020px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
+      line-height: 1.75;
+    }
+
+    a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--text);
+    }
+
+    a:hover {
+      color: var(--muted);
+      border-bottom-color: var(--muted);
+    }
+
+    .page {
+      width: min(calc(100% - 48px), var(--max-width));
+      margin: 0 auto;
+      padding: 56px 0 72px;
+    }
+
+    .hero {
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .name {
+      margin: 0;
+      font-size: clamp(2.4rem, 4.2vw, 3.5rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+
+    .subtitle {
+      margin: 12px 0 22px;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .intro {
+      margin: 0 0 22px;
+      font-size: 1.03rem;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin: 0 0 28px;
+      padding: 0;
+      list-style: none;
+      font-size: 0.98rem;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #ffffff;
+    }
+
+    .links a:hover {
+      background: #f8f8f8;
+    }
+
+    .links svg {
+      width: 16px;
+      height: 16px;
+      fill: var(--text);
+      stroke: var(--text);
+      stroke-width: 1.6;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    section {
+      padding-top: 42px;
+    }
+
+    h2 {
+      margin: 0 0 20px;
+      font-size: 1.38rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .inline-school {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      vertical-align: middle;
+      white-space: nowrap;
+      margin-left: 0.28em;
+    }
+
+    .inline-school img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      vertical-align: middle;
+    }
+
+    .education-list,
+    .publications {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 18px;
+    }
+
+    .education-item,
+    .publication {
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .education-item:last-child,
+    .publication:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .item-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+
+    .item-head img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .item-title {
+      margin: 0;
+      font-size: 1.04rem;
+      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .item-meta,
+    .publication-meta,
+    .publication-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .publication-title {
+      margin: 0 0 6px;
+      font-size: 1.03rem;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .publication-links {
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+
+    .publication-links a {
+      margin-right: 12px;
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        width: min(calc(100% - 32px), var(--max-width));
+        padding-top: 36px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <h1 class="name">Yingtie Lei</h1>
+        <p class="subtitle">M.S. Student, Department of Computer Science and Engineering, The Ohio State University</p>
+        <ul class="links" aria-label="Academic and contact links">
+          <li>
+            <a href="https://scholar.google.com/citations?user=OMBODUgAAAAJ&hl=en" target="_blank" rel="noreferrer" aria-label="Google Scholar">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3 1.5 9 12 15 22.5 9 12 3Z"></path>
+                <path d="M5.5 11.8V15.2C5.5 18.1 8.3 20 12 20C15.7 20 18.5 18.1 18.5 15.2V11.8"></path>
+              </svg>
+              <span class="sr-only">Google Scholar</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://orcid.org/0009-0001-8002-2052" target="_blank" rel="noreferrer" aria-label="ORCID">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" fill="none"></circle>
+                <circle cx="8" cy="8" r="1.4"></circle>
+                <path d="M8 11V16"></path>
+                <path d="M11.5 16V8.6H14.2C16.3 8.6 17.7 10 17.7 12.3C17.7 14.6 16.3 16 14.2 16H11.5Z" fill="none"></path>
+              </svg>
+              <span class="sr-only">ORCID</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://dblp.org/pid/375/3249.html" target="_blank" rel="noreferrer" aria-label="DBLP">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 6H11C14.5 6 17 8.3 17 12S14.5 18 11 18H5Z" fill="none"></path>
+                <path d="M8 9V15"></path>
+                <path d="M18.5 6V18"></path>
+                <path d="M18.5 18H21"></path>
+              </svg>
+              <span class="sr-only">DBLP</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/yingtie-lei-13b903344/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="2" ry="2" fill="none"></rect>
+                <circle cx="8" cy="9" r="1.2"></circle>
+                <path d="M8 11.5V16"></path>
+                <path d="M12 16V11.5"></path>
+                <path d="M12 13.2C12 12 12.9 11.2 14.1 11.2C15.3 11.2 16 12 16 13.5V16"></path>
+              </svg>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:lei.441@osu.edu" aria-label="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3.5" y="6.5" width="17" height="11" rx="1.8" ry="1.8" fill="none"></rect>
+                <path d="M4.5 8L12 13.2L19.5 8"></path>
+              </svg>
+              <span class="sr-only">Email</span>
+            </a>
+          </li>
+        </ul>
+        <p class="intro">
+          I am an M.S. student in CSE at
+          <span class="inline-school">
+            <img src="assets/osu.svg" alt="OSU logo">
+            <span>The Ohio State University</span>
+          </span>.
+          I work with Prof.
+          <a href="https://sites.google.com/view/wei-lun-harry-chao/home" target="_blank" rel="noreferrer">Wei-Lun Harry Chao</a>
+          and Prof. <a href="https://mi-zhang.github.io/" target="_blank" rel="noreferrer">Mi Zhang</a>. I am also a remote intern at
+          <span class="inline-school">
+            <img src="assets/university-of-macau-logo-svg-vector.svg" alt="University of Macau logo">
+            <span>University of Macau</span>
+          </span>,
+          where I collaborate with Prof. <a href="https://cmpun.github.io/" target="_blank" rel="noreferrer">Chi-Man Pun</a>
+          and Dr. <a href="https://cxh.netlify.app/" target="_blank" rel="noreferrer">Xuhang Chen</a>.
+        </p>
+        <p class="intro">
+          My research interests include low-level vision and explainability in computer vision, with a broader focus on
+          building more transparent and reliable visual learning systems. Recently, I have also been exploring how
+          agentic systems can be integrated with a range of deep learning tasks.
+        </p>
+      </div>
+    </header>
+
+    <section aria-labelledby="education">
+      <h2 id="education">Education</h2>
+      <ol class="education-list">
+        <li class="education-item">
+          <div class="item-head">
+            <img src="assets/osu.svg" alt="OSU logo">
+            <div>
+              <p class="item-title">M.S. in Computer Science and Engineering, The Ohio State University</p>
+              <p class="item-meta">January 2025 - Present</p>
+            </div>
+          </div>
+        </li>
+        <li class="education-item">
+          <div class="item-head">
+            <img src="https://www.scut.edu.cn/_upload/article/images/16/02/3166fd1b4c8cb0148ec56c04f071/c6faf181-ecc2-4b0b-b05d-1f4c04780ce6.png" alt="SCUT logo">
+            <div>
+              <p class="item-title">B.E. in Intelligent Science and Technology, South China University of Technology</p>
+              <p class="item-meta">September 2018 - June 2022</p>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="selected-publications">
+      <h2 id="selected-publications">Selected Publications</h2>
+      <p class="publication-note">* indicates equal contribution.</p>
+      <ol class="publications">
+        <li class="publication">
+          <p class="publication-title">QuantVLA: Scale-Calibrated Post-Training Quantization for Vision-Language-Action Models</p>
+          <p class="publication-meta">Jingxuan Zhang*, Yunta Hsieh*, Zhongwei Wang, Haokun Lin, Xin Wang, Ziqi Wang, <strong>Yingtie Lei</strong>, Mi Zhang.</p>
+          <p class="publication-note">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</p>
+          <p class="publication-links">
+            <a href="https://arxiv.org/abs/2602.20309" target="_blank" rel="noreferrer">Paper</a>
+            <a href="https://quantvla.github.io/" target="_blank" rel="noreferrer">Project</a>
+          </p>
+        </li>
+        <li class="publication">
+          <p class="publication-title">ProMist-5K: A Comprehensive Dataset for Digital Emulation of Cinematic Pro-Mist Filter Effects</p>
+          <p class="publication-meta"><strong>Yingtie Lei</strong>, Zimeng Li, Chi-Man Pun, Wangyu Wu, Junke Yang, Xuhang Chen.</p>
+          <p class="publication-note">IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP), 2026.</p>
+          <p class="publication-links">
+            <a href="https://arxiv.org/abs/2601.19295" target="_blank" rel="noreferrer">Paper</a>
+            <a href="https://www.kaggle.com/datasets/yingtielei/promist5k" target="_blank" rel="noreferrer">Dataset</a>
+          </p>
+        </li>
+        <li class="publication">
+          <p class="publication-title">FS-RWKV: Leveraging Frequency Spatial-Aware RWKV for 3T-to-7T MRI Translation</p>
+          <p class="publication-meta"><strong>Yingtie Lei</strong>, Zimeng Li, Chi-Man Pun, Yupeng Liu, Xuhang Chen.</p>
+          <p class="publication-note">IEEE International Conference on Bioinformatics and Biomedicine (BIBM), 2025.</p>
+          <p class="publication-links">
+            <a href="https://arxiv.org/abs/2510.08951" target="_blank" rel="noreferrer">Paper</a>
+          </p>
+        </li>
+        <li class="publication">
+          <p class="publication-title">CMAMRNet: A Contextual Mask-Aware Network Enhancing Mural Restoration Through Comprehensive Mask Guidance</p>
+          <p class="publication-meta"><strong>Yingtie Lei</strong>, Fanghai Yi, Yihang Dong, Weihuang Liu, Xiaofeng Zhang, Zimeng Li, Chi-Man Pun, Xuhang Chen.</p>
+          <p class="publication-note">The 36th British Machine Vision Conference (BMVC), 2025.</p>
+          <p class="publication-links">
+            <a href="https://arxiv.org/abs/2508.07140" target="_blank" rel="noreferrer">Paper</a>
+            <a href="https://github.com/CXH-Research/CMAMRNet" target="_blank" rel="noreferrer">Code</a>
+          </p>
+        </li>
+        <li class="publication">
+          <p class="publication-title">High-Fidelity Document Stain Removal via A Large-Scale Real-World Dataset and A Memory-Augmented Transformer</p>
+          <p class="publication-meta">Mingxian Li*, Hao Sun*, <strong>Yingtie Lei*</strong>, Xiaofeng Zhang, Yihang Dong, Yilin Zhou, Zimeng Li, Xuhang Chen.</p>
+          <p class="publication-note">IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2025.</p>
+          <p class="publication-links">
+            <a href="https://openaccess.thecvf.com/content/WACV2025/html/Li_High-Fidelity_Document_Stain_Removal_via_A_Large-Scale_Real-World_Dataset_and_WACV_2025_paper.html" target="_blank" rel="noreferrer">Paper</a>
+            <a href="https://github.com/CXH-Research/StainRestorer" target="_blank" rel="noreferrer">Code</a>
+          </p>
+        </li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>
