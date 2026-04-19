@@ -15,6 +15,8 @@
       --line: #dddddd;
       --panel: #f7f7f7;
       --author-accent: #1f5fb8;
+      --link-accent: #83A5B7;
+      --link-accent-hover: #83A5B7;
       --max-width: 1020px;
     }
 
@@ -76,46 +78,23 @@
     .links {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px 14px;
+      gap: 8px 12px;
       margin: 0 0 28px;
       padding: 0;
       list-style: none;
-      font-size: 0.98rem;
+      font-size: 1rem;
     }
 
-    .links a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: #ffffff;
+    .links a,
+    .publication-links a {
+      color: var(--link-accent);
+      border-bottom-color: var(--link-accent);
     }
 
-    .links a:hover {
-      background: #f8f8f8;
-    }
-
-    .links svg {
-      width: 16px;
-      height: 16px;
-      fill: var(--text);
-      stroke: var(--text);
-      stroke-width: 1.6;
-    }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
+    .links a:hover,
+    .publication-links a:hover {
+      color: var(--link-accent-hover);
+      border-bottom-color: var(--link-accent-hover);
     }
 
     section {
@@ -264,56 +243,19 @@
         <p class="subtitle">M.S. Student, Department of Computer Science and Engineering, The Ohio State University</p>
         <ul class="links" aria-label="Academic and contact links">
           <li>
-            <a href="https://scholar.google.com/citations?user=OMBODUgAAAAJ&hl=en" target="_blank" rel="noreferrer" aria-label="Google Scholar">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 3 1.5 9 12 15 22.5 9 12 3Z"></path>
-                <path d="M5.5 11.8V15.2C5.5 18.1 8.3 20 12 20C15.7 20 18.5 18.1 18.5 15.2V11.8"></path>
-              </svg>
-              <span class="sr-only">Google Scholar</span>
-            </a>
+            <a href="https://scholar.google.com/citations?user=OMBODUgAAAAJ&hl=en" target="_blank" rel="noreferrer">[Google Scholar]</a>
           </li>
           <li>
-            <a href="https://orcid.org/0009-0001-8002-2052" target="_blank" rel="noreferrer" aria-label="ORCID">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="9" fill="none"></circle>
-                <circle cx="8" cy="8" r="1.4"></circle>
-                <path d="M8 11V16"></path>
-                <path d="M11.5 16V8.6H14.2C16.3 8.6 17.7 10 17.7 12.3C17.7 14.6 16.3 16 14.2 16H11.5Z" fill="none"></path>
-              </svg>
-              <span class="sr-only">ORCID</span>
-            </a>
+            <a href="https://orcid.org/0009-0001-8002-2052" target="_blank" rel="noreferrer">[ORCID]</a>
           </li>
           <li>
-            <a href="https://dblp.org/pid/375/3249.html" target="_blank" rel="noreferrer" aria-label="DBLP">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 6H11C14.5 6 17 8.3 17 12S14.5 18 11 18H5Z" fill="none"></path>
-                <path d="M8 9V15"></path>
-                <path d="M18.5 6V18"></path>
-                <path d="M18.5 18H21"></path>
-              </svg>
-              <span class="sr-only">DBLP</span>
-            </a>
+            <a href="https://dblp.org/pid/375/3249.html" target="_blank" rel="noreferrer">[DBLP]</a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/yingtie-lei-13b903344/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="4" y="4" width="16" height="16" rx="2" ry="2" fill="none"></rect>
-                <circle cx="8" cy="9" r="1.2"></circle>
-                <path d="M8 11.5V16"></path>
-                <path d="M12 16V11.5"></path>
-                <path d="M12 13.2C12 12 12.9 11.2 14.1 11.2C15.3 11.2 16 12 16 13.5V16"></path>
-              </svg>
-              <span class="sr-only">LinkedIn</span>
-            </a>
+            <a href="https://www.linkedin.com/in/yingtie-lei-13b903344/" target="_blank" rel="noreferrer">[LinkedIn]</a>
           </li>
           <li>
-            <a href="mailto:lei.441@osu.edu" aria-label="Email">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="3.5" y="6.5" width="17" height="11" rx="1.8" ry="1.8" fill="none"></rect>
-                <path d="M4.5 8L12 13.2L19.5 8"></path>
-              </svg>
-              <span class="sr-only">Email</span>
-            </a>
+            <a href="mailto:lei.441@osu.edu">[Email]</a>
           </li>
         </ul>
         <p class="intro">
