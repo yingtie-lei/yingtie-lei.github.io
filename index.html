@@ -20,6 +20,10 @@
       --max-width: 1140px;
     }
 
+    html {
+      font-size: 70%;
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -29,7 +33,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: "Montserrat";
-      font-size: 16px;
+      font-size: 1rem;
       line-height: 1.65;
     }
 
@@ -53,6 +57,30 @@
     .hero {
       padding-bottom: 48px;
       border-bottom: 1px solid var(--line);
+    }
+
+    .hero-layout {
+      display: flex;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-photo {
+      margin: 0;
+      flex: 0 0 240px;
+    }
+
+    .hero-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .hero-copy {
+      flex: 1 1 auto;
+      min-width: 0;
     }
 
     .name {
@@ -142,36 +170,39 @@
       padding: 0;
       list-style: none;
       display: grid;
-      gap: 18px;
+      gap: 5px;
     }
 
     .publication {
-      padding-bottom: 18px;
-    }
-
-    .publication {
-      padding: 2px 0;
-      margin-bottom: 24px;
+      padding: 0;
+      margin-bottom: 5px;
     }
 
     .publication:last-child {
-      padding-bottom: 2px;
       margin-bottom: 0;
     }
 
     .publication-year {
-      margin: 24px 0 18px;
+      margin: 18px 0 10px;
       font-size: 0.98rem;
       font-weight: 600;
       color: var(--muted);
       letter-spacing: 0.02em;
     }
 
+    #selected-publications {
+      margin-bottom: 10px;
+    }
+
+    .section-divider > .publication-note:first-of-type {
+      margin-bottom: 4px;
+    }
+
     .publication-meta,
     .publication-note {
       margin: 0;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 0.875rem;
     }
 
     .publication-note {
@@ -192,14 +223,22 @@
     }
 
     .publication-title {
-      margin: 0 0 6px;
-      font-size: 18px;
+      margin: 0 0 4px;
+      font-size: 1.125rem;
       font-weight: 600;
       line-height: 1.45;
     }
 
+    .publication-meta {
+      margin: 0 0 2px;
+    }
+
+    .publication .publication-note {
+      margin: 0 0 2px;
+    }
+
     .publication-links {
-      margin-top: 8px;
+      margin: 3px 0 0;
       font-size: 0.94rem;
     }
 
@@ -212,57 +251,78 @@
         width: min(calc(100% - 28px), var(--max-width));
         padding-top: 36px;
       }
+
+      .hero-layout {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .hero-photo {
+        height: auto;
+        width: min(220px, 100%);
+        flex: none;
+      }
+
+      .hero-photo img {
+        height: auto;
+        aspect-ratio: 1 / 1.15;
+      }
     }
   </style>
 </head>
 <body>
   <main class="page">
     <header class="hero">
-      <div>
-        <h1 class="name">Yingtie Lei</h1>
-        <p class="subtitle">M.S. Student, Department of Computer Science and Engineering, The Ohio State University</p>
-        <ul class="links" aria-label="Academic and contact links">
-          <li>
-            <a href="https://scholar.google.com/citations?user=OMBODUgAAAAJ&hl=en" target="_blank" rel="noreferrer">[Google Scholar]</a>
-          </li>
-          <li>
-            <a href="https://orcid.org/0009-0001-8002-2052" target="_blank" rel="noreferrer">[ORCID]</a>
-          </li>
-          <li>
-            <a href="https://dblp.org/pid/375/3249.html" target="_blank" rel="noreferrer">[DBLP]</a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/yingtie-lei-13b903344/" target="_blank" rel="noreferrer">[LinkedIn]</a>
-          </li>
-          <li>
-            <a href="mailto:lei.441@osu.edu">[Email]</a>
-          </li>
-        </ul>
-        <p class="intro">
-          I am an M.S. student in CSE at
-          <span class="inline-school">
-            <img src="assets/osu.svg" alt="OSU logo">
-            <span>The Ohio State University</span>
-          </span>.
-          I work with Prof.
-          <a href="https://sites.google.com/view/wei-lun-harry-chao/home" target="_blank" rel="noreferrer">Wei-Lun (Harry) Chao</a>
-          and Prof. <a href="https://mi-zhang.github.io/" target="_blank" rel="noreferrer">Mi Zhang</a>. I am also a remote intern at
-          <span class="inline-school">
-            <img src="assets/university-of-macau-logo-svg-vector.svg" alt="University of Macau logo">
-            <span>University of Macau</span>
-          </span>,
-          where I collaborate with Prof. <a href="https://cmpun.github.io/" target="_blank" rel="noreferrer">Chi-Man Pun</a>
-          and Dr. <a href="https://cxh.netlify.app/" target="_blank" rel="noreferrer">Xuhang Chen</a>. Before that, I received my B.E. in Intelligent Science and Technology from
-          <span class="inline-school">
-            <img src="https://www.scut.edu.cn/_upload/article/images/16/02/3166fd1b4c8cb0148ec56c04f071/c6faf181-ecc2-4b0b-b05d-1f4c04780ce6.png" alt="South China University of Technology logo">
-            <span>South China University of Technology</span>
-          </span>.
-        </p>
-        <p class="intro">
-          My research interests include low-level vision and explainability in computer vision, with a broader focus on
-          building more transparent and reliable visual learning systems. Recently, I have also been exploring how
-          agentic systems can be integrated with a range of deep learning tasks.
-        </p>
+      <div class="hero-layout">
+        <figure class="hero-photo">
+          <img src="assets/headshot.png" alt="Portrait of Yingtie Lei">
+        </figure>
+        <div class="hero-copy">
+          <h1 class="name">Yingtie Lei</h1>
+          <p class="subtitle">M.S. Student, Department of Computer Science and Engineering, The Ohio State University</p>
+          <ul class="links" aria-label="Academic and contact links">
+            <li>
+              <a href="https://scholar.google.com/citations?user=OMBODUgAAAAJ&hl=en" target="_blank" rel="noreferrer">[Google Scholar]</a>
+            </li>
+            <li>
+              <a href="https://orcid.org/0009-0001-8002-2052" target="_blank" rel="noreferrer">[ORCID]</a>
+            </li>
+            <li>
+              <a href="https://dblp.org/pid/375/3249.html" target="_blank" rel="noreferrer">[DBLP]</a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/yingtie-lei-13b903344/" target="_blank" rel="noreferrer">[LinkedIn]</a>
+            </li>
+            <li>
+              <a href="mailto:lei.441@osu.edu">[Email]</a>
+            </li>
+          </ul>
+          <p class="intro">
+            I am an M.S. student in CSE at
+            <span class="inline-school">
+              <img src="assets/osu.svg" alt="OSU logo">
+              <span>The Ohio State University</span>
+            </span>.
+            I work with Prof.
+            <a href="https://sites.google.com/view/wei-lun-harry-chao/home" target="_blank" rel="noreferrer">Wei-Lun (Harry) Chao</a>
+            and Prof. <a href="https://mi-zhang.github.io/" target="_blank" rel="noreferrer">Mi Zhang</a>. I am also a remote intern at
+            <span class="inline-school">
+              <img src="assets/university-of-macau-logo-svg-vector.svg" alt="University of Macau logo">
+              <span>University of Macau</span>
+            </span>,
+            where I collaborate with Prof. <a href="https://cmpun.github.io/" target="_blank" rel="noreferrer">Chi-Man Pun</a>
+            and Dr. <a href="https://cxh.netlify.app/" target="_blank" rel="noreferrer">Xuhang Chen</a>. Before that, I received my B.E. in Intelligent Science and Technology from
+            <span class="inline-school">
+              <img src="https://www.scut.edu.cn/_upload/article/images/16/02/3166fd1b4c8cb0148ec56c04f071/c6faf181-ecc2-4b0b-b05d-1f4c04780ce6.png" alt="South China University of Technology logo">
+              <span>South China University of Technology</span>
+            </span>.
+          </p>
+          <p class="intro">
+            My research interests include low-level vision and explainability in computer vision, with a broader focus on
+            building more transparent and reliable visual learning systems. Recently, I have also been exploring how
+            agentic systems can be integrated with a range of deep learning tasks.
+          </p>
+        </div>
       </div>
     </header>
 
@@ -320,6 +380,7 @@
         </li>
       </ol>
     </section>
+
   </main>
 </body>
 </html>
