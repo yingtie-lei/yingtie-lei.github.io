@@ -19,11 +19,11 @@
       --author-accent: #1f5fb8;
       --link-accent: #83A5B7;
       --link-accent-hover: #83A5B7;
-      --max-width: 1140px;
+      --max-width: 1020px;
     }
 
     html {
-      font-size: 70%;
+      font-size: 76%;
     }
 
     * {
@@ -58,7 +58,6 @@
 
     .hero {
       padding-bottom: 48px;
-      border-bottom: 1px solid var(--line);
     }
 
     .hero-layout {
@@ -148,6 +147,10 @@
       letter-spacing: -0.02em;
     }
 
+    #selected-publications {
+      font-size: 1.55rem;
+    }
+
     p {
       margin: 0 0 14px;
     }
@@ -198,7 +201,9 @@
     }
 
     .section-divider > .publication-note:first-of-type {
-      margin-bottom: 4px;
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
     }
 
     .publication-meta,
@@ -238,13 +243,14 @@
 
     .publication .publication-note {
       margin: 0 0 2px;
+      font-style: normal;
     }
 
     .publication-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin: 6px 0 0;
+      gap: 4px;
+      margin: 4px 0 0;
       font-size: 0.8rem;
     }
 
@@ -253,11 +259,11 @@
       align-items: center;
       justify-content: center;
       min-width: 0;
-      padding: 4px 12px;
+      padding: 3px 5px;
       border: 1px solid var(--button-border);
       border-radius: 4px;
-      background: var(--button-panel);
-      color: var(--link-accent);
+      background: #ffffff;
+      color: var(--text);
       font-weight: 500;
       line-height: 1.15;
       transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
@@ -268,7 +274,7 @@
     .publication-links a:hover {
       border-bottom-color: var(--button-border);
       border-color: #c2cad6;
-      background: #f1f4f7;
+      background: #ffffff;
       color: var(--link-accent-hover);
     }
 
@@ -339,7 +345,7 @@
             where I collaborate with Prof. <a href="https://cmpun.github.io/" target="_blank" rel="noreferrer">Chi-Man Pun</a>
             and Dr. <a href="https://cxh.netlify.app/" target="_blank" rel="noreferrer">Xuhang Chen</a>. Before that, I received my B.E. in Intelligent Science and Technology from
             <span class="inline-school">
-              <img src="https://www.scut.edu.cn/_upload/article/images/16/02/3166fd1b4c8cb0148ec56c04f071/c6faf181-ecc2-4b0b-b05d-1f4c04780ce6.png" alt="South China University of Technology logo">
+              <img src="assets/scut-logo.png" alt="South China University of Technology logo">
               <span>South China University of Technology</span>
             </span>.
           </p>
