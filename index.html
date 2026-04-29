@@ -19,7 +19,8 @@
       --author-accent: #1f5fb8;
       --link-accent: #83A5B7;
       --link-accent-hover: #83A5B7;
-      --max-width: 1020px;
+      --year-ribbon: #dceefd;
+      --max-width: 1120px;
     }
 
     html {
@@ -190,10 +191,18 @@
 
     .publication-year {
       margin: 18px 0 10px;
-      font-size: 0.98rem;
+      display: inline-block;
+      width: fit-content;
+      padding: 0 0.45em 0.08em;
+      font-size: 1.02rem;
       font-weight: 600;
       color: var(--muted);
       letter-spacing: 0.02em;
+      background: linear-gradient(
+        180deg,
+        transparent 42%,
+        var(--year-ribbon) 42%
+      );
     }
 
     #selected-publications {
