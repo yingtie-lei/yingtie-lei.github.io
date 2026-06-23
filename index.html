@@ -26,11 +26,11 @@
       --link-accent-hover: #9fbec5;
       --year-ribbon: #dceefd;
       --heading-weight: 550;
-      --max-width: 820px;
+      --max-width: 900px;
     }
 
     html {
-      font-size: 76%;
+      font-size: 91.2%;
     }
 
     * {
@@ -75,14 +75,14 @@
 
     .hero-photo {
       margin: 0;
-      flex: 0 0 140px;
+      flex: 0 0 168px;
       order: 2;
     }
 
     .hero-photo img {
       display: block;
-      width: 140px;
-      height: 140px;
+      width: 168px;
+      height: 168px;
       object-fit: cover;
       object-position: center top;
       border-radius: 1px;
@@ -190,8 +190,8 @@
     }
 
     .inline-school img {
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
       object-fit: contain;
       vertical-align: middle;
     }
@@ -259,8 +259,22 @@
     .venue {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
+      gap: 0.45em;
+      max-width: 100%;
+      vertical-align: baseline;
+    }
+
+    .venue-logo {
+      display: block;
+      width: 4.8em;
+      height: 1.45em;
+      object-fit: contain;
+      object-position: center;
+      flex: 0 0 4.8em;
+    }
+
+    .venue-text {
+      min-width: 0;
     }
 
     .publication-title {
@@ -328,8 +342,8 @@
       }
 
       .hero-photo img {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
       }
     }
   </style>
@@ -380,7 +394,7 @@
         <li class="publication">
           <p class="publication-title">QuantVLA: Scale-Calibrated Post-Training Quantization for Vision-Language-Action Models</p>
           <p class="publication-meta">Jingxuan Zhang*, Yunta Hsieh*, Zhongwei Wan, Haokun Lin, Xin Wang, Ziqi Wang, <strong>Yingtie Lei</strong>, Mi Zhang.</p>
-          <p class="publication-note">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</p>
+          <p class="publication-note"><span class="venue"><img class="venue-logo" src="assets/CVPR2026_logo.png" alt="CVPR logo"><span class="venue-text">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026.</span></span></p>
           <p class="publication-links">
             <a href="https://arxiv.org/abs/2602.20309" target="_blank" rel="noreferrer">Paper</a>
             <a href="https://quantvla.github.io/" target="_blank" rel="noreferrer">Project</a>
@@ -389,7 +403,7 @@
         <li class="publication">
           <p class="publication-title">FS-RWKV: Leveraging Frequency Spatial-Aware RWKV for 3T-to-7T MRI Translation</p>
           <p class="publication-meta"><strong>Yingtie Lei</strong>, Zimeng Li, Chi-Man Pun, Yupeng Liu, Xuhang Chen.</p>
-          <p class="publication-note">IEEE International Conference on Bioinformatics and Biomedicine (BIBM), 2025.</p>
+          <p class="publication-note"><span class="venue"><img class="venue-logo" src="assets/bibm-2025.png" alt="BIBM logo"><span class="venue-text">IEEE International Conference on Bioinformatics and Biomedicine (BIBM), 2025.</span></span></p>
           <p class="publication-links">
             <a href="https://arxiv.org/abs/2510.08951" target="_blank" rel="noreferrer">Paper</a>
           </p>
@@ -397,7 +411,7 @@
         <li class="publication">
           <p class="publication-title">CMAMRNet: A Contextual Mask-Aware Network Enhancing Mural Restoration Through Comprehensive Mask Guidance</p>
           <p class="publication-meta"><strong>Yingtie Lei</strong>, Fanghai Yi, Yihang Dong, Weihuang Liu, Xiaofeng Zhang, Zimeng Li, Chi-Man Pun, Xuhang Chen.</p>
-          <p class="publication-note">The 36th British Machine Vision Conference (BMVC), 2025.</p>
+          <p class="publication-note"><span class="venue"><img class="venue-logo" src="assets/bmvc-2025.png" alt="BMVC logo"><span class="venue-text">The 36th British Machine Vision Conference (BMVC), 2025.</span></span></p>
           <p class="publication-links">
             <a href="https://arxiv.org/abs/2508.07140" target="_blank" rel="noreferrer">Paper</a>
             <a href="https://github.com/CXH-Research/CMAMRNet" target="_blank" rel="noreferrer">Code</a>
@@ -406,7 +420,7 @@
         <li class="publication">
           <p class="publication-title">High-Fidelity Document Stain Removal via A Large-Scale Real-World Dataset and A Memory-Augmented Transformer</p>
           <p class="publication-meta">Mingxian Li*, Hao Sun*, <strong>Yingtie Lei*</strong>, Xiaofeng Zhang, Yihang Dong, Yilin Zhou, Zimeng Li, Xuhang Chen.</p>
-          <p class="publication-note">IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2025.</p>
+          <p class="publication-note"><span class="venue"><img class="venue-logo" src="assets/wacv-2025-logo-color-1024x315-removebg-preview.png" alt="WACV logo"><span class="venue-text">IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2025.</span></span></p>
           <p class="publication-links">
             <a href="https://openaccess.thecvf.com/content/WACV2025/html/Li_High-Fidelity_Document_Stain_Removal_via_A_Large-Scale_Real-World_Dataset_and_WACV_2025_paper.html" target="_blank" rel="noreferrer">Paper</a>
             <a href="https://github.com/CXH-Research/StainRestorer" target="_blank" rel="noreferrer">Code</a>
