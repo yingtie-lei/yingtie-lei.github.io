@@ -28,6 +28,9 @@
               Unmatched labels fall back to plain text.
    - Year:    The year this paper is grouped under in the timeline.
    - URL:     (optional) The paper's link — the TITLE becomes clickable.
+              Only used as a fallback: if a "PDF" link exists in Links, the
+              title always points there instead, so the title and the PDF
+              button never disagree.
 
  Papers are GROUPED INTO A TIMELINE BY YEAR (newest year first), using the
  Year field above. Within a year they appear in the order written here.

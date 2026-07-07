@@ -167,11 +167,16 @@
     return entries;
   }
 
-  // The paper's primary link, used to make the title clickable. An explicit
-  // `URL:` field wins; otherwise it is auto-derived from an arXiv id in Info
+  // The paper's primary link, used to make the title clickable — always
+  // kept in sync with the paper's own "PDF" link in `Links:`, so the title
+  // never points somewhere different from the PDF button. Falls back to an
+  // explicit `URL:` field, then an arXiv id in Info
   // (arXiv:2509.18575 -> https://arxiv.org/abs/2509.18575). Returns null when
   // there is nothing to link to.
   function primaryUrl(e) {
+    var pdfLink = (e.links || []).filter(function (l) { return iconKeyForLabel(l.label) === "pdf"; })[0];
+    if (pdfLink) return pdfLink.url;
+
     if (e.url) {
       var u = sanitizeUrl(e.url.trim());
       return u === "#" ? null : u;
