@@ -157,6 +157,7 @@ section > p em {
 header {
     padding-right: 26px;
     box-sizing: border-box;
+    text-align: center;   /* centers the name, avatar, and tagline below */
 }
 
 /* avatar halo (direct child of <header> only — NOT the .contact-icon imgs).
