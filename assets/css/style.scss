@@ -1,0 +1,528 @@
+---
+---
+
+@import "jekyll-theme-minimal";
+/*! redesign: refined-soft-cards */
+
+/* ===========================================================================
+   Visual refresh — same site, markedly more elegant.
+
+   Keeps the original IDENTITY (the white background, Noto Sans/Josefin Sans,
+   the fixed 270px sidebar + 660px content column) and polishes everything
+   around it: a brick-red/dusty-rose token system ("Small Switch Palette":
+   #B32B2B / #FCE6E7 / #AE6C72), darker headings, stronger type rhythm, flat
+   rectangular publication cards with a lightly-tinted background (shadow
+   only on hover) and a pill venue badge, and a refined sidebar with a
+   square avatar frame.
+
+   Loaded AFTER `@import "jekyll-theme-minimal"`, so these rules override the
+   base theme. Publications are rendered client-side (assets/js/publications.js)
+   from publications.md into the .publication-item markup styled below.
+
+   Compiled by Ruby Sass 3.7.4 (jekyll-sass-converter 1.5.2): no @use/@forward,
+   no numeric "/" division; the one CSS min() is interpolated so Sass emits it
+   verbatim.
+   =========================================================================== */
+
+/* ---- design tokens ("Small Switch Palette": #B32B2B / #FCE6E7 / #AE6C72) - */
+:root {
+    /* Signature accent + a calibrated family for tints, text, and shades.
+       #B32B2B and #FCE6E7 are used verbatim. Links render LIGHT by default
+       (--accent-strong, a derivative of the given #AE6C72) and go DARK on
+       hover/focus (--accent-hover, the given #B32B2B) — both stay WCAG-safe
+       for small text on white (5:1 and 6.4:1 respectively). --accent-ink is
+       a still-darker derivative for the strongest emphasis (~12:1). */
+    --accent:        #B32B2B;   /* brick red — borders, stripes, focus outline, avatar ring */
+    --accent-hover:  #B32B2B;   /* brick red — hover/focus state (darker than the resting link colour) */
+    --accent-strong: #a15b62;   /* dusty rose (derived from #AE6C72), AA-safe resting link colour, ~5:1 */
+    --accent-ink:    #4a1010;   /* deepest brick, for strongest emphasis on white, ~12:1 */
+    --accent-50:     #fefafa;   /* faintest wash — barely-there tint for card backgrounds */
+    --accent-100:    #FCE6E7;   /* pale pink — pill / soft surface */
+    --accent-200:    #f6d3d5;   /* hairline accent border                          */
+
+    /* Neutrals — headings darkened to a warm near-black; body text keeps WCAG AA on white */
+    --ink:        #1c1013;   /* headings (h1/h2/strong) — darker, warm-tinted */
+    --ink-soft:   #2e1a1e;   /* card titles     */
+    --body:       #5c525f;   /* body copy ~7:1  */
+    --muted:      #756a78;   /* secondary meta ~5:1 */
+    --faint:      #a4969f;   /* tertiary / separators */
+    --line:       #efe5eb;   /* hairlines */
+    --line-soft:  #f5eef2;
+
+    --surface:    #ffffff;
+
+    /* Rhythm */
+    --radius:     14px;
+    --radius-sm:  8px;
+    --gap:        0.8rem;
+
+    /* Layered soft shadow (kept light so 11 cards never feel heavy) */
+    --shadow:       0 1px 2px rgba(28, 16, 19, 0.05), 0 4px 14px rgba(28, 16, 19, 0.05);
+    --shadow-hover: 0 2px 6px rgba(28, 16, 19, 0.07), 0 12px 26px rgba(179, 43, 43, 0.12);
+}
+
+/* ---- global type rhythm -------------------------------------------------- */
+body {
+    color: var(--body);
+    font-family: 'Josefin Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14.5px;
+    line-height: 1.62;
+    letter-spacing: 0.005em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Calm the base theme's reflow-on-hover (bold) for body links; keep it a
+   colour shift instead so nothing jumps. Sidebar/CV/pills opt out explicitly. */
+a {
+    color: var(--accent-strong);
+    transition: color 0.15s ease;
+}
+a:hover,
+a:focus {
+    color: var(--accent-hover);
+    font-weight: 400;
+}
+strong {
+    color: var(--ink);
+}
+
+/* Visible focus everywhere a keyboard user can land (accessibility) */
+a:focus-visible,
+.publication-link:focus-visible,
+.contact-item a:focus-visible,
+header > img:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 3px;
+}
+
+/* ===========================================================================
+   SECTION HEADINGS
+   =========================================================================== */
+section h2 {
+    color: var(--ink);
+    font-size: 1.32rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    margin: 2.4rem 0 1.25rem;
+}
+
+/* First h2 needn't push hard against the intro */
+section > h2:first-of-type {
+    margin-top: 1.9rem;
+}
+
+/* dividers under each section heading */
+section hr {
+    border: 0;
+    height: 1px;
+    background: var(--line);
+    margin: 0 0 1.4rem;
+}
+
+/* ---- intro / bio readability --------------------------------------------- */
+section > p {
+    color: var(--body);
+    font-size: 14.5px;
+    line-height: 1.66;
+    margin: 0 0 0.95rem;
+}
+section > p strong {
+    color: var(--ink);
+    font-weight: 650;
+}
+section > p em {
+    color: var(--ink-soft);
+}
+
+/* The "✧ Equal Contribution …" note, right under the Publications heading */
+.pub-intro-note {
+    margin-top: 1.4rem;
+    padding: 0.7rem 0.95rem;
+    background: var(--accent-50);
+    border: 1px solid var(--line-soft);
+    border-left: 3px solid var(--accent-200);
+    border-radius: var(--radius-sm);
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: var(--muted);
+}
+
+/* ===========================================================================
+   SIDEBAR — avatar, name, tagline, contact rows, CV button
+   =========================================================================== */
+header {
+    padding-right: 26px;
+    box-sizing: border-box;
+}
+
+/* avatar halo (direct child of <header> only — NOT the .contact-icon imgs).
+   Square corners (no rounding) rather than a circle. */
+header > img {
+    width: 184px;
+    height: 184px;
+    object-fit: cover;
+    border-radius: 0;
+    padding: 4px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    box-shadow: 0 0 0 4px var(--accent-50), 0 6px 20px rgba(28, 16, 19, 0.10);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+header > img:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 4px var(--accent-100), 0 10px 26px rgba(179, 43, 43, 0.18);
+}
+
+header h1 {
+    font-size: 1.62rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    line-height: 1.15;
+    margin: 1rem 0 0.35rem;
+}
+
+/* tagline ("M.S. Student in CSE @ Ohio State University") — first <p> in header */
+header > p {
+    color: var(--muted);
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    margin: 0 0 0.9rem;
+}
+
+/* small school-logo icon inline with the tagline text */
+.tagline-icon {
+    height: 1.15em;
+    width: auto;
+    margin-left: 0.35em;
+    vertical-align: -0.2em;
+    object-fit: contain;
+}
+
+header hr {
+    background: var(--line);
+    margin: 0.95rem 0;
+}
+
+/* contact list */
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.3;
+}
+
+.contact-icon {
+    width: 15px;
+    height: 15px;
+    margin-right: 9px;
+    flex: none;
+    object-fit: contain;
+    opacity: 0.78;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.contact-item:hover .contact-icon {
+    opacity: 1;
+    transform: scale(1.06);
+}
+
+.contact-item a {
+    color: var(--body);
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+.contact-item a:hover,
+.contact-item a:focus {
+    color: var(--accent-hover);
+    border-bottom-color: var(--accent-200);
+    font-weight: 400;       /* cancel base theme bold => no reflow */
+}
+
+/* "My CV" reads as a subtle button — opt in explicitly via .cv-button,
+   rather than :last-child, so it doesn't accidentally style whichever
+   contact row happens to be last (e.g. DBLP) as a pill/button. */
+.contact-item.cv-button {
+    margin-top: 0.55rem;
+}
+.contact-item.cv-button a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.95rem 0.4rem 0.8rem;
+    border-radius: 999px;
+    background: var(--accent-100);
+    border: 1px solid var(--accent-200);
+    color: var(--accent-strong);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border-bottom-color: var(--accent-200);
+    transition: background 0.18s ease, border-color 0.18s ease,
+                color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+.contact-item.cv-button a:hover,
+.contact-item.cv-button a:focus {
+    background: var(--accent-strong);   /* AA: white-on-#a15b62 ~5:1 */
+    border-color: var(--accent-strong);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(179, 43, 43, 0.28);
+    font-weight: 600;
+}
+
+/* ===========================================================================
+   PUBLICATIONS — rectangular cards (slightly rounded), shadow only on hover
+   =========================================================================== */
+.publications-container {
+    margin: 1.2rem 0 0;
+}
+
+.publication-item {
+    position: relative;
+    padding: 1.05rem 1.15rem;
+    margin-bottom: var(--gap);
+    background: var(--surface);   /* pure white, same as the page background */
+    border: 2px solid var(--line);
+    border-radius: var(--radius-sm);
+    box-shadow: none;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.publication-item:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent-200);
+}
+
+.publication-title {
+    font-size: 1.06rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.4rem;
+    font-weight: 650;
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    transition: color 0.2s ease;
+}
+.publication-item:hover .publication-title {
+    color: var(--accent-ink);
+}
+
+/* The title is a link to the paper (arXiv / DOI). It should look exactly like
+   a plain title and only REVEAL itself as a link on hover or keyboard focus.
+   Three explicit states (no reliance on source-order ties):
+     1. default + visited  -> inherits the title's colour/weight, no underline.
+     2. hover / keyboard    -> accent colour + underline (the "this is a link"
+        focus (:focus-visible)   affordance, kept for accessibility).
+     3. lingering mouse-click focus (:focus but NOT :focus-visible, and not
+        hovering) -> force the title look back. The title opens in a new tab,
+        so after a click the link keeps :focus in this tab; without this it
+        would get "stuck" in the base theme's a:focus colour. The :not() chain
+        raises specificity above a:focus so the reset always wins. */
+.publication-title-link,
+.publication-title-link:visited {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+.publication-title-link:hover,
+.publication-title-link:focus-visible {
+    color: var(--accent-strong);
+    font-weight: inherit;       /* cancel the base theme's bold-on-hover */
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+.publication-title-link:focus:not(:focus-visible):not(:hover) {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+}
+
+.publication-authors {
+    color: var(--body);
+    margin-bottom: 0.6rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.highlighted-author {
+    font-weight: 700;
+    color: var(--accent-strong);
+}
+
+.publication-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--muted);
+    font-size: 0.84rem;
+}
+
+/* venue as a soft blue pill badge */
+.publication-venue {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.16rem 0.6rem;
+    border-radius: 999px;
+    background: var(--accent-100);
+    border: 1px solid var(--accent-200);
+    color: var(--accent-strong);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.005em;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+/* venue logo image — shown instead of the text pill when a paper has a Logo: field */
+.publication-venue-logo {
+    display: block;
+    height: 1.35rem;
+    width: auto;
+    max-width: 6.5em;
+    object-fit: contain;
+}
+
+.publication-date {
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.publication-separator {
+    color: var(--faint);
+}
+
+.publication-note {
+    margin-top: 0.55rem;
+    font-size: 0.83rem;
+    line-height: 1.5;
+    color: var(--muted);
+}
+
+/* optional link icons (rendered when a paper has a "- Links:" field) —
+   plain icon glyphs, no pill/box background; label is the accessible name
+   (aria-label/title) rather than visible text */
+.publication-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.7rem;
+}
+
+.publication-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    border-radius: 0;
+    background: none;
+    border: 0;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.16s ease, transform 0.16s ease;
+}
+.publication-link svg {
+    width: 19px;
+    height: 19px;
+    fill: currentColor;
+}
+.publication-link:hover,
+.publication-link:focus-visible {
+    color: var(--accent-strong);
+    transform: translateY(-1px);
+}
+
+.publications-empty {
+    color: var(--faint);
+    font-size: 0.9rem;
+}
+
+/* ===========================================================================
+   Staggered load-in (reduced-motion safe). publications.js adds `.is-ready`
+   to #publications-list when rendered; --pi is the item index. `min()` is
+   interpolated so Ruby Sass passes it through verbatim (no builtin clash).
+   =========================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+    #publications-list.is-ready .publication-item {
+        animation: pubFade 0.45s ease both;
+        animation-delay: #{"calc(min(var(--pi, 0), 10) * 45ms)"};
+    }
+}
+
+@keyframes pubFade {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* ===========================================================================
+   A subtle hairline between the fixed sidebar and the content column —
+   only on wide screens, where the two-column layout is active.
+   =========================================================================== */
+@media screen and (min-width: 961px) {
+    header {
+        border-right: 1px solid var(--line);
+    }
+}
+
+/* ===========================================================================
+   RESPONSIVE — keep the base theme's single-column collapse working.
+   At <=960px header/section/footer un-float (base theme); tidy our additions.
+   =========================================================================== */
+@media print, screen and (max-width: 960px) {
+    header {
+        padding-right: 320px;   /* matches base theme; contact list floats right */
+        border-right: 0;
+    }
+
+    section h2 {
+        margin-top: 1.6rem;
+    }
+
+    .publications-container {
+        margin: 1rem 0 0;
+    }
+}
+
+@media print, screen and (max-width: 720px) {
+    header {
+        padding-right: 0;
+    }
+
+    header > img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .publication-item {
+        padding: 0.95rem 1rem;
+    }
+
+    .publication-info {
+        flex-wrap: wrap;
+    }
+}
+
+@media print, screen and (max-width: 480px) {
+    section h2 {
+        font-size: 1.22rem;
+    }
+
+    .publication-title {
+        font-size: 1.0rem;
+    }
+
+    .contact-item.cv-button a {
+        padding: 0.42rem 0.9rem;
+    }
+}
+

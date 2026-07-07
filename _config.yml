@@ -1,0 +1,9 @@
+title: Yingtie Lei
+logo: /assets/img/headshot.png
+description: M.S. Student in CSE @ Ohio State University
+tagline_icon: /assets/img/osu-logo.svg
+show_downloads: false
+theme: jekyll-theme-minimal
+
+titles_from_headings:
+  enabled: false
