@@ -9,11 +9,11 @@
 
    Keeps the original IDENTITY (the white background, Noto Sans/Josefin Sans,
    the fixed 270px sidebar + 660px content column) and polishes everything
-   around it: a brick-red/dusty-rose token system ("Small Switch Palette":
-   #B32B2B / #FCE6E7 / #AE6C72), darker headings, stronger type rhythm, flat
-   rectangular publication cards with a lightly-tinted background (shadow
-   only on hover) and a pill venue badge, and a refined sidebar with a
-   square avatar frame.
+   around it: a deep-maroon/dusty-rose token system (primary accent #4a1010,
+   deepened from the "Small Switch Palette" brick red #B32B2B; pale wash
+   #FCE6E7), darker headings, stronger type rhythm, flat rectangular
+   publication cards with a lightly-tinted background (shadow only on hover)
+   and a pill venue badge, and a refined sidebar with a square avatar frame.
 
    Loaded AFTER `@import "jekyll-theme-minimal"`, so these rules override the
    base theme. Publications are rendered client-side (assets/js/publications.js)
@@ -24,18 +24,20 @@
    verbatim.
    =========================================================================== */
 
-/* ---- design tokens ("Small Switch Palette": #B32B2B / #FCE6E7 / #AE6C72) - */
+/* ---- design tokens (primary accent #4a1010; "Small Switch Palette" #FCE6E7 / #AE6C72) - */
 :root {
     /* Signature accent + a calibrated family for tints, text, and shades.
-       #B32B2B and #FCE6E7 are used verbatim. Links render LIGHT by default
-       (--accent-strong, a derivative of the given #AE6C72) and go DARK on
-       hover/focus (--accent-hover, the given #B32B2B) — both stay WCAG-safe
-       for small text on white (5:1 and 6.4:1 respectively). --accent-ink is
-       a still-darker derivative for the strongest emphasis (~12:1). */
-    --accent:        #B32B2B;   /* brick red — borders, stripes, focus outline, avatar ring */
-    --accent-hover:  #B32B2B;   /* brick red — hover/focus state (darker than the resting link colour) */
-    --accent-strong: #a15b62;   /* dusty rose (derived from #AE6C72), AA-safe resting link colour, ~5:1 */
-    --accent-ink:    #4a1010;   /* deepest brick, for strongest emphasis on white, ~12:1 */
+       #FCE6E7 is used verbatim. Links render LIGHT by default
+       (--accent-strong, a derivative of the "Small Switch Palette" #AE6C72)
+       and go DARK on hover/focus (--accent-hover, the "Small Switch
+       Palette" brick red #B32B2B) — both stay WCAG-safe for small text on
+       white (5:1 and 6.4:1 respectively). --accent is the deeper #4a1010
+       (borders/focus outline/avatar ring only); --accent-ink is the same
+       deep maroon, for the strongest emphasis (~12:1). */
+    --accent:        #000000;   /* deep maroon — borders, stripes, focus outline, avatar ring */
+    --accent-hover:  #d36767;   /* brick red — hover/focus state (darker than the resting link colour) */
+    --accent-strong: #d38e94;   /* dusty rose (derived from #AE6C72), AA-safe resting link colour, ~5:1 */
+    --accent-ink:    #000000;   /* deepest brick, for strongest emphasis on white, ~12:1 */
     --accent-50:     #fefafa;   /* faintest wash — barely-there tint for card backgrounds */
     --accent-100:    #FCE6E7;   /* pale pink — pill / soft surface */
     --accent-200:    #f6d3d5;   /* hairline accent border                          */
@@ -198,10 +200,10 @@ header > p {
 
 /* small school-logo icon inline with the tagline text */
 .tagline-icon {
-    height: 1.15em;
+    height: 1.4em;
     width: auto;
-    margin-left: 0.35em;
-    vertical-align: -0.2em;
+    margin-left: 0.2em;
+    vertical-align: middle;
     object-fit: contain;
 }
 
@@ -354,6 +356,23 @@ header hr {
 .highlighted-author {
     font-weight: 700;
     color: var(--accent-strong);
+}
+
+/* "equal contribution" marker — a small ringed-star icon in place of a
+   plain "†" character, used both after author names and in .pub-intro-note */
+.equal-contrib-icon-wrap {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    position: relative;
+    top: -0.14em;   /* nudges the icon up to sit level with the text */
+    margin: 0 0.05em;
+}
+.equal-contrib-icon {
+    width: 0.85em;
+    height: 0.85em;
+    flex: none;
+    object-fit: contain;
 }
 
 .publication-info {

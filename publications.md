@@ -12,7 +12,8 @@
 
    - Authors: Comma-separated list. Wrap YOUR OWN name in **double asterisks**
               to highlight it, e.g. **Yingtie Lei**. Keep the "†" mark after a
-              name to denote equal contribution.
+              name to denote equal contribution — it's rendered as a small
+              star icon, not the literal character.
    - Venue:   Conference / journal / workshop, e.g. "CVPR 2026".
    - Logo:    (optional) path to a conference logo image, e.g.
               /assets/img/logos/cvpr-2026.png — shown after the venue pill's

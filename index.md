@@ -12,7 +12,7 @@ My research interests include low-level vision and explainability in computer vi
 
 ## Publications
 
-<p class="pub-intro-note">† denotes equal contribution.</p>
+<p class="pub-intro-note"><span class="equal-contrib-icon-wrap" role="img" aria-label="equal contribution" title="Equal contribution"><img class="equal-contrib-icon" src="{{ '/assets/icon/equal.svg' | relative_url }}" alt=""></span> denotes equal contribution.</p>
 
 ---
 

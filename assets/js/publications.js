@@ -52,6 +52,22 @@
     return null;
   }
 
+  // "†" after an author's name (and in the "denotes equal contribution"
+  // note) is swapped for /assets/icon/equal.svg (a shooting-star icon with
+  // its own fixed colors, so it's shown as a plain <img> rather than inlined
+  // as currentColor-tinted SVG).
+  var EQUAL_CONTRIB_ICON_HTML =
+    '<span class="equal-contrib-icon-wrap" role="img" aria-label="equal contribution" title="Equal contribution">' +
+    '<img class="equal-contrib-icon" src="/assets/icon/equal.svg" alt="">' +
+    "</span>";
+
+  // Swaps every literal "†" in already-rendered (escaped) HTML for the icon.
+  // Safe to run on renderInline() output: escapeHtml() never touches "†",
+  // so a plain string split/join can't clobber surrounding markup.
+  function withEqualContribIcon(html) {
+    return html.split("†").join(EQUAL_CONTRIB_ICON_HTML);
+  }
+
   // --- Inline markdown helpers -------------------------------------------
 
   function escapeHtml(s) {
@@ -200,7 +216,7 @@
         '" target="_blank" rel="noopener">' + titleInner + "</a>";
     }
     parts.push('<h3 class="publication-title">' + titleInner + "</h3>");
-    if (e.authors) parts.push('<div class="publication-authors">' + renderInline(e.authors, "highlighted-author") + "</div>");
+    if (e.authors) parts.push('<div class="publication-authors">' + withEqualContribIcon(renderInline(e.authors, "highlighted-author")) + "</div>");
 
     var pieces = [];
     if (e.venue) pieces.push('<span class="publication-venue">' + renderInline(e.venue) + "</span>");
