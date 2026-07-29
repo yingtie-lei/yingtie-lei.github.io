@@ -1,8 +1,3 @@
-_site
-.sass-cache
-Gemfile.lock
-*.gem
-.jekyll-cache
+dist/
 .DS_Store
-vendor
-.bundle
+Thumbs.db
