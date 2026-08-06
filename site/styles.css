@@ -12,6 +12,14 @@
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.1);
 }
 
+@font-face {
+  font-family: "Test National 2";
+  src: url("./assets/TestNational2-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -25,7 +33,7 @@ body {
   min-width: 320px;
   color: #111111;
   background: #ffffff;
-  font-family: "Fuzzy Bubbles", "Trebuchet MS", sans-serif;
+  font-family: "Test National 2", Arial, sans-serif;
   font-size: 19px;
   font-weight: 400;
   line-height: 1.55;
@@ -294,13 +302,36 @@ main {
   font-weight: 700;
 }
 
-.biography .advisor-link {
+.biography a.advisor-link,
+.biography a.advisor-link:visited {
+  position: relative;
+  display: inline-block;
   color: #2c73d2;
-  text-decoration-color: currentColor;
+  text-decoration: none !important;
+  background: none;
+  transition: color 180ms ease;
 }
 
-.biography .advisor-link:hover {
-  color: #4C88D8;
+.biography a.advisor-link::after {
+  position: absolute;
+  right: 0;
+  bottom: 0.08em;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.biography a.advisor-link:hover {
+  color: #4c88d8;
+  text-decoration: none !important;
+}
+
+.biography a.advisor-link:hover::after {
+  transform: scaleX(1);
 }
 
 .welcome-heading {
@@ -451,13 +482,87 @@ main {
 
 .publication__links {
   display: flex;
-  gap: 0.9rem;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.8rem;
 }
 
-.publication__links a {
-  font-size: 0.74rem;
+.publication__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0.45rem 0.62rem;
+  border: 1px solid #d2d5d2;
+  border-radius: 2px;
+  color: #5d625f;
+  background: #fafbfa;
+  font-family: inherit;
+  font-size: 0.75rem;
   font-weight: 700;
+  line-height: 1;
   text-decoration: none;
+  cursor: pointer;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.publication__link:hover {
+  color: #111111;
+  background: #f1f3f1;
+  border-color: #aeb3af;
+}
+
+.publication__link:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 2px;
+}
+
+.external-arrow {
+  margin-left: 0.28rem;
+  font-size: 0.95em;
+  line-height: 1;
+}
+
+.bibtex-toggle {
+  min-width: 58px;
+}
+
+.bibtex-toggle[aria-expanded="true"] {
+  color: #ffffff;
+  background: #111111;
+  border-color: #111111;
+}
+
+.bibtex-panel {
+  max-width: 100%;
+  margin-top: 0.7rem;
+  overflow-x: auto;
+  border: 1px solid #d2d5d2;
+  border-radius: 2px;
+  background: #f7f8f7;
+}
+
+.bibtex-panel[hidden] {
+  display: none;
+}
+
+.bibtex-panel pre {
+  min-width: max-content;
+  margin: 0;
+  padding: 0.9rem 1rem;
+  color: #303330;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.68rem;
+  line-height: 1.55;
+  white-space: pre;
+}
+
+.bibtex-panel pre:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: -2px;
 }
 
 footer {

@@ -33,14 +33,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&amp;family=Lato:wght@400;700&amp;family=Long+Cang&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&amp;family=Long+Cang&amp;display=swap"
       rel="stylesheet"
     />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260806-1" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -221,7 +221,7 @@
           <div class="section-heading">
             <p class="eyebrow">Selected work</p>
             <h2>
-              <span class="heading-emoji" role="img" aria-label="Books">📚</span>
+              <span class="heading-emoji" role="img" aria-label="Bookmark tabs">📑</span>
               Publications
             </h2>
           </div>
@@ -255,10 +255,23 @@
                   </p>
                   <div class="publication__links">
                     <a
+                      class="publication__link"
+                      href="https://openaccess.thecvf.com/content/CVPR2026/html/Zhang_QuantVLA_Scale-Calibrated_Post-Training_Quantization_for_Vision-Language-Action_Models_CVPR_2026_paper.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >Paper <span class="external-arrow" aria-hidden="true">&#8599;</span></a>
+                    <a
+                      class="publication__link"
                       href="https://quantvla.github.io/"
                       target="_blank"
                       rel="noopener noreferrer"
-                    >Project ↗</a>
+                    >Project <span class="external-arrow" aria-hidden="true">&#8599;</span></a>
+                    <button
+                      class="publication__link bibtex-toggle"
+                      type="button"
+                      data-bibtex-key="quantvla"
+                      aria-label="Show BibTeX citation for QuantVLA"
+                    >BibTeX</button>
                   </div>
                 </div>
               </article>
@@ -289,6 +302,26 @@
                     <strong>Yingtie Lei</strong>, Zimeng Li, Chi-Man Pun,
                     Yupeng Liu, Xuhang Chen
                   </p>
+                  <div class="publication__links">
+                    <a
+                      class="publication__link"
+                      href="https://ieeexplore.ieee.org/document/11356228"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >Paper <span class="external-arrow" aria-hidden="true">&#8599;</span></a>
+                    <a
+                      class="publication__link"
+                      href="https://github.com/yingtie-lei/FS-RWKV"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >Code <span class="external-arrow" aria-hidden="true">&#8599;</span></a>
+                    <button
+                      class="publication__link bibtex-toggle"
+                      type="button"
+                      data-bibtex-key="fs-rwkv"
+                      aria-label="Show BibTeX citation for FS-RWKV"
+                    >BibTeX</button>
+                  </div>
                 </div>
               </article>
             </li>
@@ -321,10 +354,23 @@
                   </p>
                   <div class="publication__links">
                     <a
+                      class="publication__link"
+                      href="https://bmvc2025.bmva.org/proceedings/59/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >Paper <span class="external-arrow" aria-hidden="true">&#8599;</span></a>
+                    <a
+                      class="publication__link"
                       href="https://github.com/CXH-Research/CMAMRNet"
                       target="_blank"
                       rel="noopener noreferrer"
-                    >Code ↗</a>
+                    >Code <span class="external-arrow" aria-hidden="true">&#8599;</span></a>
+                    <button
+                      class="publication__link bibtex-toggle"
+                      type="button"
+                      data-bibtex-key="cmamrnet"
+                      aria-label="Show BibTeX citation for CMAMRNet"
+                    >BibTeX</button>
                   </div>
                 </div>
               </article>
@@ -360,10 +406,23 @@
                   </p>
                   <div class="publication__links">
                     <a
+                      class="publication__link"
+                      href="https://openaccess.thecvf.com/content/WACV2025/html/Li_High-Fidelity_Document_Stain_Removal_via_A_Large-Scale_Real-World_Dataset_and_WACV_2025_paper.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >Paper <span class="external-arrow" aria-hidden="true">&#8599;</span></a>
+                    <a
+                      class="publication__link"
                       href="https://github.com/CXH-Research/StainRestorer"
                       target="_blank"
                       rel="noopener noreferrer"
-                    >Code ↗</a>
+                    >Code <span class="external-arrow" aria-hidden="true">&#8599;</span></a>
+                    <button
+                      class="publication__link bibtex-toggle"
+                      type="button"
+                      data-bibtex-key="stain-restorer"
+                      aria-label="Show BibTeX citation for High-Fidelity Document Stain Removal"
+                    >BibTeX</button>
                   </div>
                 </div>
               </article>
@@ -376,5 +435,73 @@
         </footer>
       </main>
     </div>
+    <script>
+      const bibtexEntries = {
+        quantvla: `@InProceedings{Zhang_2026_CVPR,
+    author    = {Zhang, Jingxuan and Hsieh, Yunta and Wan, Zhongwei and Lin, Haokun and Wang, Xin and Wang, Ziqi and Lei, Yingtie and Zhang, Mi},
+    title     = {QuantVLA: Scale-Calibrated Post-Training Quantization for Vision-Language-Action Models},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2026},
+    pages     = {39539-39549}
+}`,
+        "fs-rwkv": `@inproceedings{lei2025fs,
+  title={Fs-rwkv: leveraging frequency spatial-aware RWKV for 3t-to-7t MRI translation},
+  author={Lei, Yingtie and Li, Zimeng and Liu, Yupeng and Chen, Xuhang and Pun, Chi-Man},
+  booktitle={2025 IEEE international conference on bioinformatics and biomedicine (BIBM)},
+  pages={1--6},
+  year={2025},
+  organization={IEEE}
+}`,
+        cmamrnet: `@inproceedings{Lei_2025_BMVC,
+author    = {Yingtie Lei and Fanghai Yi and Yihang Dong and Weihuang Liu and Xiaofeng Zhang and Zimeng Li and Chi-Man Pun and Xuhang Chen},
+title     = {CMAMRNet: A Contextual Mask-Aware Network Enhancing Mural Restoration Through Comprehensive Mask Guidance},
+booktitle = {36th British Machine Vision Conference 2025, {BMVC} 2025, Sheffield, UK, November 24-27, 2025},
+publisher = {BMVA},
+year      = {2025},
+url       = {https://bmva-archive.org.uk/bmvc/2025/assets/papers/Paper_59/paper.pdf}
+}`,
+        "stain-restorer": `@InProceedings{Li_2025_WACV,
+    author    = {Li, Mingxian and Sun, Hao and Lei, Yingtie and Zhang, Xiaofeng and Dong, Yihang and Zhou, Yilin and Li, Zimeng and Chen, Xuhang},
+    title     = {High-Fidelity Document Stain Removal via A Large-Scale Real-World Dataset and A Memory-Augmented Transformer},
+    booktitle = {Proceedings of the Winter Conference on Applications of Computer Vision (WACV)},
+    month     = {February},
+    year      = {2025},
+    pages     = {7603-7613}
+}`,
+      };
+
+      document.querySelectorAll(".bibtex-toggle").forEach((button) => {
+        const key = button.dataset.bibtexKey;
+        const panel = document.createElement("div");
+        const pre = document.createElement("pre");
+        const code = document.createElement("code");
+
+        button.id = `bibtex-toggle-${key}`;
+        button.setAttribute("aria-controls", `bibtex-panel-${key}`);
+        button.setAttribute("aria-expanded", "false");
+
+        panel.id = `bibtex-panel-${key}`;
+        panel.className = "bibtex-panel";
+        panel.hidden = true;
+        panel.setAttribute("aria-labelledby", button.id);
+
+        code.textContent = bibtexEntries[key];
+        pre.tabIndex = 0;
+        pre.appendChild(code);
+        panel.appendChild(pre);
+        button.closest(".publication__links").insertAdjacentElement("afterend", panel);
+
+        const showLabel = button.getAttribute("aria-label");
+        const hideLabel = showLabel.replace("Show", "Hide");
+
+        button.addEventListener("click", () => {
+          const isOpen = button.getAttribute("aria-expanded") === "true";
+          button.setAttribute("aria-expanded", String(!isOpen));
+          button.setAttribute("aria-label", isOpen ? showLabel : hideLabel);
+          panel.hidden = isOpen;
+        });
+      });
+    </script>
   </body>
 </html>
