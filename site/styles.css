@@ -304,34 +304,21 @@ main {
 
 .biography a.advisor-link,
 .biography a.advisor-link:visited {
-  position: relative;
-  display: inline-block;
   color: #2c73d2;
   text-decoration: none !important;
-  background: none;
-  transition: color 180ms ease;
-}
-
-.biography a.advisor-link::after {
-  position: absolute;
-  right: 0;
-  bottom: 0.08em;
-  left: 0;
-  height: 1px;
-  background: currentColor;
-  content: "";
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  transition:
+    color 180ms ease,
+    background-size 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .biography a.advisor-link:hover {
   color: #4c88d8;
   text-decoration: none !important;
-}
-
-.biography a.advisor-link:hover::after {
-  transform: scaleX(1);
+  background-size: 100% 1px;
 }
 
 .welcome-heading {
