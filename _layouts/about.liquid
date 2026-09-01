@@ -1,0 +1,88 @@
+---
+layout: default
+---
+<div class="post academic-home">
+  <article>
+    <section class="academic-hero" aria-labelledby="academic-home-name">
+      {% if page.profile and page.profile.image %}
+        <div class="academic-hero__portrait">
+          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+          {% if page.profile.image_circular %}
+            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+          {% else %}
+            {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+          {% endif %}
+          {% capture sizes %}(min-width: {{ site.max_width }}) 220px, (min-width: 576px) 30vw, 92vw{% endcapture %}
+          {%
+            include figure.liquid
+            loading="eager"
+            path=profile_image_path
+            class=profile_image_class
+            sizes=sizes
+            alt="Portrait of Yingtie Lei"
+            cache_bust=true
+          %}
+        </div>
+      {% endif %}
+
+      <div class="academic-hero__intro">
+        <h1 id="academic-home-name" class="academic-hero__name">
+          {% if site.title == 'blank' %}
+            {{ site.first_name }}
+            {{ site.middle_name }}
+            {{ site.last_name }}
+          {% else %}
+            {{ site.title }}
+          {% endif %}
+          {% if page.native_name -%}
+            <span class="academic-hero__native-name">({{ page.native_name }})</span>
+          {%- endif %}
+        </h1>
+
+        {% if page.position %}
+          <p class="academic-hero__role">{{ page.position }}</p>
+        {% endif %}
+        {% if page.affiliation %}
+          <p class="academic-hero__affiliation">{{ page.affiliation }}</p>
+        {% endif %}
+
+        {% if page.social %}
+          <div class="academic-hero__social" aria-label="Academic and social profiles">
+            <div class="contact-icons">{% social_links %}</div>
+          </div>
+        {% endif %}
+      </div>
+    </section>
+
+    <div class="academic-bio">{{ content }}</div>
+
+    {% if page.announcements and page.announcements.enabled %}
+      <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a></h2>
+      {% include news.liquid limit=true %}
+    {% endif %}
+
+    {% if page.latest_posts and page.latest_posts.enabled %}
+      <h2><a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a></h2>
+      {% include latest_posts.liquid %}
+    {% endif %}
+
+    {% if page.selected_papers %}
+      <div class="academic-section-heading">
+        <h2>
+          selected publications
+          <a href="{{ '/publications/' | relative_url }}">[full list]</a>
+        </h2>
+        <p>(*) denotes equal contribution</p>
+      </div>
+      {% include selected_papers.liquid %}
+    {% endif %}
+
+    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
+      {% if site.plugins contains 'al_newsletter' %}
+        {% include plugins/al_newsletter_form_center_margin.liquid %}
+      {% else %}
+        {% include newsletter.liquid center=true %}
+      {% endif %}
+    {% endif %}
+  </article>
+</div>

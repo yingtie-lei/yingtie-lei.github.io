@@ -1,0 +1,188 @@
+.academic-home {
+  .academic-hero {
+    display: grid;
+    grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: stretch;
+    margin-bottom: 1.75rem;
+  }
+
+  .academic-hero__portrait {
+    width: 100%;
+    max-width: 220px;
+
+    figure,
+    picture,
+    img {
+      width: 100%;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    img {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+  }
+
+  .academic-hero__intro {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 0.15rem 0;
+  }
+
+  .academic-hero__name {
+    margin: 0 0 1.8rem;
+    font-size: clamp(2.25rem, 5vw, 3.4rem);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+  }
+
+  .academic-hero__native-name {
+    white-space: nowrap;
+  }
+
+  .academic-hero__role,
+  .academic-hero__affiliation {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.55;
+  }
+
+  .academic-hero__role {
+    font-weight: 600;
+  }
+
+  .academic-hero__social {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    text-align: left;
+
+    .contact-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.95rem;
+      align-items: center;
+      font-size: 2rem;
+    }
+
+    a {
+      color: var(--global-text-color);
+
+      &:hover {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+
+  .academic-bio {
+    margin-bottom: 2.5rem;
+    font-size: 1.03rem;
+    line-height: 1.72;
+  }
+
+  .academic-section-heading {
+    margin: 0 0 0.35rem;
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.8rem, 4vw, 2.25rem);
+      font-weight: 300;
+      line-height: 1.25;
+    }
+
+    p {
+      margin: 0.55rem 0 0;
+      color: var(--global-text-color-light);
+    }
+  }
+}
+
+.publications {
+  ol.bibliography li {
+    margin-bottom: 2rem;
+
+    > .row {
+      align-items: flex-start;
+    }
+
+    .abbr {
+      flex: 0 0 15%;
+      max-width: 15%;
+      padding-right: 1.25rem;
+
+      abbr {
+        min-width: 4.5rem;
+        padding: 0.35rem 0.5rem;
+        text-align: center;
+        text-decoration: none;
+      }
+    }
+
+    .col-sm-8 {
+      flex: 0 0 85%;
+      max-width: 85%;
+    }
+
+    .title {
+      font-size: 1.05rem;
+      line-height: 1.45;
+    }
+
+    .author,
+    .periodical {
+      line-height: 1.55;
+    }
+
+    .links {
+      margin-top: 0.35rem;
+
+      a.btn {
+        margin: 0.2rem 0.25rem 0.2rem 0;
+        padding: 0.15rem 0.55rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .academic-home {
+    .academic-hero {
+      grid-template-columns: 1fr;
+      gap: 1.35rem;
+    }
+
+    .academic-hero__portrait {
+      max-width: 210px;
+    }
+
+    .academic-hero__name {
+      margin-bottom: 1.2rem;
+    }
+
+    .academic-hero__social {
+      margin-top: 0;
+      padding-top: 1.15rem;
+    }
+  }
+
+  .publications ol.bibliography li {
+    .abbr,
+    .col-sm-8 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .abbr {
+      padding-right: 15px;
+
+      abbr {
+        width: auto !important;
+      }
+    }
+  }
+}

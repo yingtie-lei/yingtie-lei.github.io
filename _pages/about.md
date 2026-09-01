@@ -3,9 +3,12 @@ layout: about
 title: about
 permalink: /
 subtitle: M.S. in Computer Science and Engineering at The Ohio State University
+native_name: 雷英铁
+position: M.S. Student in Computer Science and Engineering
+affiliation: The Ohio State University
 
 profile:
-  align: right
+  align: left
   image: profile.png
   image_circular: false
   more_info:
