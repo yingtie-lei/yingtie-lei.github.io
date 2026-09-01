@@ -107,25 +107,36 @@
     margin-bottom: 2rem;
 
     > .row {
+      display: grid;
+      grid-template-columns: max-content minmax(0, 1fr);
+      gap: 0.9rem;
       align-items: flex-start;
+      margin-right: 0;
+      margin-left: 0;
     }
 
     .abbr {
-      flex: 0 0 15%;
-      max-width: 15%;
-      padding-right: 1.25rem;
+      width: auto;
+      max-width: none;
+      padding: 0.15rem 0 0;
 
       abbr {
-        min-width: 4.5rem;
-        padding: 0.35rem 0.5rem;
+        width: auto !important;
+        min-width: 3.6rem;
+        margin: 0;
+        padding: 0.3rem 0.5rem;
+        font-size: 0.72rem;
+        line-height: 1;
         text-align: center;
         text-decoration: none;
+        white-space: nowrap;
       }
     }
 
     .col-sm-8 {
-      flex: 0 0 85%;
-      max-width: 85%;
+      width: auto;
+      max-width: none;
+      padding: 0;
     }
 
     .title {
@@ -171,18 +182,19 @@
   }
 
   .publications ol.bibliography li {
+    > .row {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+    }
+
     .abbr,
     .col-sm-8 {
-      flex: 0 0 100%;
+      width: 100%;
       max-width: 100%;
     }
 
     .abbr {
-      padding-right: 15px;
-
-      abbr {
-        width: auto !important;
-      }
+      padding: 0;
     }
   }
 }
