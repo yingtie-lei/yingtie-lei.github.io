@@ -39,17 +39,17 @@ layout: default
           {%- endif %}
         </h1>
 
+        {% if page.social %}
+          <div class="academic-hero__social" aria-label="Academic and social profiles">
+            <div class="contact-icons">{% social_links %}</div>
+          </div>
+        {% endif %}
+
         {% if page.position %}
           <p class="academic-hero__role">{{ page.position }}</p>
         {% endif %}
         {% if page.affiliation %}
           <p class="academic-hero__affiliation">{{ page.affiliation }}</p>
-        {% endif %}
-
-        {% if page.social %}
-          <div class="academic-hero__social" aria-label="Academic and social profiles">
-            <div class="contact-icons">{% social_links %}</div>
-          </div>
         {% endif %}
       </div>
     </section>
