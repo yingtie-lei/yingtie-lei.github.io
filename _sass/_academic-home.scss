@@ -123,8 +123,10 @@
       abbr {
         width: 46px !important;
         min-width: 46px;
+        max-width: 46px !important;
         margin: 0;
         padding: 0.3rem 0.25rem;
+        box-sizing: border-box;
         font-size: 0.72rem;
         line-height: 1;
         text-align: center;
