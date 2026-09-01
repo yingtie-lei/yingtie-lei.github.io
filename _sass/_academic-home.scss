@@ -108,8 +108,8 @@
 
     > .row {
       display: grid;
-      grid-template-columns: max-content minmax(0, 1fr);
-      gap: 0.9rem;
+      grid-template-columns: 8rem minmax(0, 1fr);
+      gap: 2.4rem;
       align-items: flex-start;
       margin-right: 0;
       margin-left: 0;
@@ -121,8 +121,8 @@
       padding: 0.15rem 0 0;
 
       abbr {
-        width: auto !important;
-        min-width: 3.6rem;
+        width: 4.5rem !important;
+        min-width: 4.5rem;
         margin: 0;
         padding: 0.3rem 0.5rem;
         font-size: 0.72rem;
