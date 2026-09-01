@@ -1,16 +1,15 @@
+.navbar .navbar-brand,
+.navbar .navbar-brand .font-weight-bold {
+  font-weight: 400 !important;
+}
+
 .academic-home {
   .academic-hero {
-    display: grid;
-    grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
-    gap: 2.5rem;
     align-items: stretch;
-    margin-bottom: 1.75rem;
+    margin-bottom: 1rem;
   }
 
   .academic-hero__portrait {
-    width: 100%;
-    max-width: 220px;
-
     figure,
     picture,
     img {
@@ -22,7 +21,7 @@
     }
 
     img {
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 2 / 3;
       object-fit: cover;
     }
   }
@@ -31,15 +30,16 @@
     display: flex;
     flex-direction: column;
     min-width: 0;
-    padding: 0.15rem 0;
+    padding-top: 0.15rem;
+    padding-bottom: 0.25rem;
   }
 
   .academic-hero__name {
-    margin: 0 0 1.8rem;
-    font-size: clamp(2.25rem, 5vw, 3.4rem);
+    margin: 0 0 2.25rem;
+    font-size: 2.5rem;
     font-weight: 300;
-    line-height: 1.08;
-    letter-spacing: -0.025em;
+    line-height: 1.2;
+    letter-spacing: normal;
   }
 
   .academic-hero__native-name {
@@ -49,12 +49,16 @@
   .academic-hero__role,
   .academic-hero__affiliation {
     margin: 0;
-    font-size: 1.05rem;
-    line-height: 1.55;
+    font-size: 1rem;
+    line-height: 1.5;
   }
 
   .academic-hero__role {
-    font-weight: 600;
+    font-weight: 500;
+  }
+
+  .academic-hero__affiliation {
+    font-weight: 400;
   }
 
   .academic-hero__social {
@@ -65,9 +69,9 @@
     .contact-icons {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.95rem;
+      gap: 1rem;
       align-items: center;
-      font-size: 2rem;
+      font-size: 3rem;
     }
 
     a {
@@ -75,56 +79,61 @@
 
       &:hover {
         color: var(--global-theme-color);
+        text-decoration: none;
       }
     }
   }
 
   .academic-bio {
-    margin-bottom: 2.5rem;
-    font-size: 1.03rem;
-    line-height: 1.72;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+
+    p {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .phd-seeking {
+    color: var(--global-theme-color) !important;
+    font-weight: 700;
   }
 
   .academic-section-heading {
-    margin: 0 0 0.35rem;
+    margin: 0;
 
     h2 {
-      margin: 0;
-      font-size: clamp(1.8rem, 4vw, 2.25rem);
+      margin: 0 0 0.5rem;
+      font-size: 2rem;
       font-weight: 300;
-      line-height: 1.25;
+      line-height: 1.2;
     }
 
     p {
-      margin: 0.55rem 0 0;
-      color: var(--global-text-color-light);
+      margin: 0;
+      color: var(--global-text-color);
     }
   }
 }
 
 .publications {
   ol.bibliography li {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 
     > .row {
-      display: grid;
-      grid-template-columns: 8rem minmax(0, 1fr);
-      gap: 2.4rem;
       align-items: flex-start;
-      margin-right: 0;
-      margin-left: 0;
     }
 
     .abbr {
-      width: auto;
-      max-width: none;
-      padding: 0.15rem 0 0;
+      flex: 0 0 16.666667%;
+      max-width: 16.666667%;
+      padding-top: 0.15rem;
 
       abbr {
         width: 46px !important;
         min-width: 46px;
         max-width: 46px !important;
-        margin: 0;
+        margin-bottom: 0.5rem;
         padding: 0.3rem 0.25rem;
         box-sizing: border-box;
         font-size: 0.72rem;
@@ -136,27 +145,26 @@
     }
 
     .col-sm-8 {
-      width: auto;
-      max-width: none;
-      padding: 0;
+      flex: 0 0 75%;
+      max-width: 75%;
     }
 
     .title {
-      font-size: 1.05rem;
-      line-height: 1.45;
+      font-size: 1rem;
+      line-height: 1.5;
     }
 
     .author,
     .periodical {
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     .links {
-      margin-top: 0.35rem;
+      margin-top: 0.25rem;
 
       a.btn {
-        margin: 0.2rem 0.25rem 0.2rem 0;
-        padding: 0.15rem 0.55rem;
+        margin: 0.15rem 0 0;
+        padding: 0.1rem 0.35rem;
       }
     }
   }
@@ -164,39 +172,34 @@
 
 @media (max-width: 575.98px) {
   .academic-home {
-    .academic-hero {
-      grid-template-columns: 1fr;
-      gap: 1.35rem;
-    }
-
-    .academic-hero__portrait {
+    .academic-hero__portrait figure {
       max-width: 210px;
     }
 
+    .academic-hero__intro {
+      margin-top: 1.25rem;
+    }
+
     .academic-hero__name {
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
+      font-size: 2.25rem;
     }
 
     .academic-hero__social {
       margin-top: 0;
-      padding-top: 1.15rem;
+      padding-top: 1.25rem;
     }
   }
 
   .publications ol.bibliography li {
-    > .row {
-      grid-template-columns: 1fr;
-      gap: 0.4rem;
-    }
-
     .abbr,
     .col-sm-8 {
-      width: 100%;
+      flex: 0 0 100%;
       max-width: 100%;
     }
 
     .abbr {
-      padding: 0;
+      padding-bottom: 0.35rem;
     }
   }
 }

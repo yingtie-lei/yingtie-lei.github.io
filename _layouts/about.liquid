@@ -3,16 +3,16 @@ layout: default
 ---
 <div class="post academic-home">
   <article>
-    <section class="academic-hero" aria-labelledby="academic-home-name">
+    <section class="row academic-hero" aria-labelledby="academic-home-name">
       {% if page.profile and page.profile.image %}
-        <div class="academic-hero__portrait">
+        <div class="col-sm-3 academic-hero__portrait">
           {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
           {% if page.profile.image_circular %}
             {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
           {% else %}
             {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
           {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) 220px, (min-width: 576px) 30vw, 92vw{% endcapture %}
+          {% capture sizes %}(min-width: {{ site.max_width }}) 200px, (min-width: 576px) 25vw, 92vw{% endcapture %}
           {%
             include figure.liquid
             loading="eager"
@@ -25,8 +25,8 @@ layout: default
         </div>
       {% endif %}
 
-      <div class="academic-hero__intro">
-        <h1 id="academic-home-name" class="academic-hero__name">
+      <div class="col-sm-9 academic-hero__intro">
+        <h1 id="academic-home-name" class="post-title academic-hero__name">
           {% if site.title == 'blank' %}
             {{ site.first_name }}
             {{ site.middle_name }}
