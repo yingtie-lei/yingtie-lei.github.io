@@ -24,3 +24,9 @@
 @use "teachings";
 @use "typograms";
 @use "academic-home";
+
+:root,
+html[data-theme="dark"] {
+  --global-theme-color: #b509ac;
+  --global-hover-color: #b509ac;
+}
