@@ -36,6 +36,22 @@ jobs:
           JEKYLL_ENV: production
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
 
+      - name: Version stylesheet URL
+        run: |
+          ruby <<'RUBY'
+          sha = ENV.fetch("GITHUB_SHA")
+          updated = 0
+          Dir.glob("_site/**/*.html").each do |path|
+            html = File.read(path)
+            next unless html.gsub!(%r{(/assets/css/main\.css\?v=)[0-9a-f]+}) { Regexp.last_match(1) + sha }
+
+            File.write(path, html)
+            updated += 1
+          end
+          abort "No stylesheet references found" if updated.zero?
+          puts "Versioned stylesheet URL in #{updated} HTML files"
+          RUBY
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
