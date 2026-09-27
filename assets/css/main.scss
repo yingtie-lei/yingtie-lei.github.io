@@ -26,11 +26,11 @@
 @use "typograms";
 @use "academic-home";
 
-html:has(.academic-home) {
+html {
   font-size: 90%;
 }
 
-body:has(.academic-home) {
+body {
   font-family: "Roboto Mono", monospace;
 }
 

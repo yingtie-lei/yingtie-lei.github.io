@@ -15,7 +15,7 @@ footer_text: >
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
 keywords: Yingtie Lei, computer vision, low-level vision, explainable AI, Ohio State University
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: site-logo.png # browser tab icon from assets/img/
+icon: site-logo-favicon.png # tightly cropped browser tab icon from assets/img/
 apple_touch_icon: site-logo.png # iOS home-screen icon from assets/img/
 
 url: https://yingtie-lei.github.io # the base hostname & protocol for your site
