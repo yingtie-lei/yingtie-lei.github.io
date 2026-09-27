@@ -30,6 +30,10 @@ body:has(.academic-home) {
   font-family: "Roboto Mono", monospace;
 }
 
+footer.sticky-bottom {
+  font-size: 0.8rem;
+}
+
 :root,
 html[data-theme="dark"] {
   --global-theme-color: #ff8e00;
