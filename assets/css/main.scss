@@ -8,7 +8,8 @@
 @use "sass:string";
 
 @use "variables" with (
-  $max-content-width: {{site.max_width | default: "930px"}}
+  $max-content-width: {{site.max_width | default: "930px"}},
+  $purple-color: #ff8e00
 );
 
 @use "themes";
@@ -25,8 +26,13 @@
 @use "typograms";
 @use "academic-home";
 
+body:has(.academic-home) {
+  font-family: "Roboto Mono", monospace;
+}
+
 :root,
 html[data-theme="dark"] {
-  --global-theme-color: #b509ac;
-  --global-hover-color: #b509ac;
+  --global-theme-color: #ff8e00;
+  --global-hover-color: #ff8e00;
+  --global-hover-text-color: #000000;
 }
