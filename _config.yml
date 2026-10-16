@@ -300,6 +300,11 @@ defaults:
     values:
       sitemap: false
 
+  - scope:
+      path: "google61492b1197e67964.html"
+    values:
+      sitemap: false
+
 sass:
   style: compressed
 
