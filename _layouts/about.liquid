@@ -1,88 +1,126 @@
 ---
-layout: default
+layout: null
 ---
-<div class="post academic-home">
-  <article>
-    <section class="row academic-hero" aria-labelledby="academic-home-name">
-      {% if page.profile and page.profile.image %}
-        <div class="col-sm-3 academic-hero__portrait">
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}" data-theme="light">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+      {{ site.first_name | escape }}
+      {{ site.last_name | escape }}
+      {% if page.native_name %} ({{ page.native_name | escape }}){% endif %}
+    </title>
+    <meta name="description" content="{{ site.description | strip | escape }}">
+    <meta name="author" content="{{ site.first_name | escape }} {{ site.last_name | escape }}">
+    {% if site.google_site_verification and site.google_site_verification != '' %}
+      <meta name="google-site-verification" content="{{ site.google_site_verification | escape }}">
+    {% endif %}
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <link rel="icon" href="{{ '/assets/img/site-logo-favicon.png' | relative_url }}">
+    <link rel="apple-touch-icon" href="{{ '/assets/img/site-logo.png' | relative_url }}">
+    <meta property="og:title" content="{{ site.first_name | escape }} {{ site.last_name | escape }}">
+    <meta property="og:description" content="{{ site.description | strip | escape }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:image" content="{{ '/assets/img/og.png' | absolute_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url | bust_file_cache }}">
+  </head>
+  <body class="home-page">
+    <main class="home-main">
+      <div class="academic-home">
+        <article>
+          <section class="academic-hero" aria-labelledby="academic-home-name">
+            {% if page.profile and page.profile.image %}
+              <div class="academic-hero__portrait">
+                {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+                <img
+                  src="{{ profile_image_path | relative_url }}"
+                  width="160"
+                  height="160"
+                  alt="Portrait of {{ site.first_name | escape }} {{ site.last_name | escape }}"
+                  fetchpriority="high"
+                >
+              </div>
+            {% endif %}
+            <div class="academic-hero__intro">
+              <h1 id="academic-home-name" class="academic-hero__name">
+                {% if site.title == 'blank' %}
+                  {{ site.first_name }}
+                  {{ site.middle_name }}
+                  {{ site.last_name }}
+                {% else %}
+                  {{ site.title }}
+                {% endif %}
+                {% if page.native_name -%}
+                  <span class="academic-hero__native-name">({{ page.native_name }})</span>
+                {%- endif %}
+              </h1>
+            </div>
+          </section>
+
+          <div class="academic-bio">{{ content }}</div>
+
+          {% if page.social %}
+            <nav class="academic-social" aria-label="Academic and social profiles">
+              {% if site.data.socials.scholar_userid %}
+                <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid | escape }}">[Google Scholar]</a>
+              {% endif %}
+              {% if site.data.socials.linkedin_username %}
+                <a href="https://www.linkedin.com/in/{{ site.data.socials.linkedin_username | escape }}/">[LinkedIn]</a>
+              {% endif %}
+              {% if site.data.socials.email %}
+                <a href="mailto:{{ site.data.socials.email | escape }}">[Email]</a>
+              {% endif %}
+            </nav>
           {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) 200px, (min-width: 576px) 25vw, 92vw{% endcapture %}
-          {%
-            include figure.liquid
-            loading="eager"
-            path=profile_image_path
-            class=profile_image_class
-            sizes=sizes
-            alt="Portrait of Yingtie Lei"
-            cache_bust=true
-          %}
-        </div>
-      {% endif %}
 
-      <div class="col-sm-9 academic-hero__intro">
-        <h1 id="academic-home-name" class="post-title academic-hero__name">
-          {% if site.title == 'blank' %}
-            {{ site.first_name }}
-            {{ site.middle_name }}
-            {{ site.last_name }}
-          {% else %}
-            {{ site.title }}
-          {% endif %}
-          {% if page.native_name -%}
-            <span class="academic-hero__native-name">({{ page.native_name }})</span>
-          {%- endif %}
-        </h1>
+          <section class="academic-research" aria-label="Research papers" data-paper-disclosures>
+            <div class="academic-research__controls" aria-label="Paper categories">
+              <button
+                type="button"
+                id="publications-tab"
+                aria-controls="publications-panel"
+                aria-expanded="false"
+                data-paper-toggle="publications-panel"
+              >
+                Publications
+              </button>
+              <button type="button" id="preprint-tab" aria-controls="preprint-panel" aria-expanded="false" data-paper-toggle="preprint-panel">
+                Preprints
+              </button>
+            </div>
 
-        {% if page.social %}
-          <div class="academic-hero__social" aria-label="Academic and social profiles">
-            <div class="contact-icons">{% social_links %}</div>
-          </div>
-        {% endif %}
+            <section id="publications-panel" class="academic-research__panel" aria-labelledby="publications-heading" hidden>
+              <h2 id="publications-heading">Publications</h2>
+              <p class="academic-research__note">* denotes equal contribution.</p>
+              {% capture publications %}{% bibliography --template paper_code --group_by none --query @*[preprint!=true] %}{% endcapture %}
+              {% if publications contains '<li' %}
+                {{ publications }}
+              {% else %}
+                <p class="academic-research__empty">No publications to display yet.</p>
+              {% endif %}
+            </section>
 
-        {% if page.position %}
-          <p class="academic-hero__role">{{ page.position }}</p>
-        {% endif %}
-        {% if page.affiliation %}
-          <p class="academic-hero__affiliation">{{ page.affiliation }}</p>
-        {% endif %}
+            <section id="preprint-panel" class="academic-research__panel" aria-labelledby="preprint-heading" hidden>
+              <h2 id="preprint-heading">Preprints</h2>
+              {% capture preprints %}{% bibliography --template paper_code --group_by none --query @*[preprint=true] %}{% endcapture %}
+              {% if preprints contains '<li' %}
+                <p class="academic-research__note">* denotes equal contribution.</p>
+                {{ preprints }}
+              {% else %}
+                <p class="academic-research__empty">No preprints to display yet.</p>
+              {% endif %}
+            </section>
+          </section>
+        </article>
       </div>
-    </section>
-
-    <div class="academic-bio">{{ content }}</div>
-
-    {% if page.announcements and page.announcements.enabled %}
-      <h2><a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a></h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
-
-    {% if page.latest_posts and page.latest_posts.enabled %}
-      <h2><a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a></h2>
-      {% include latest_posts.liquid %}
-    {% endif %}
-
-    {% if page.selected_papers %}
-      <div class="academic-section-heading">
-        <h2>
-          selected publications
-          <a href="{{ '/publications/' | relative_url }}">[full list]</a>
-        </h2>
-        <p>(*) denotes equal contribution</p>
-      </div>
-      {% include selected_papers.liquid %}
-    {% endif %}
-
-    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
-      {% if site.plugins contains 'al_newsletter' %}
-        {% include plugins/al_newsletter_form_center_margin.liquid %}
-      {% else %}
-        {% include newsletter.liquid center=true %}
-      {% endif %}
-    {% endif %}
-  </article>
-</div>
+    </main>
+    <footer class="home-footer">
+      &copy; {{ site.time | date: '%Y' }}
+      {{ site.first_name | escape }}
+      {{ site.last_name | escape }}
+    </footer>
+    <script src="{{ '/assets/js/paper-tabs.js' | relative_url | bust_file_cache }}" defer></script>
+  </body>
+</html>

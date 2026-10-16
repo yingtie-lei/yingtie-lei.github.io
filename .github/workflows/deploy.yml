@@ -1,4 +1,4 @@
-name: Deploy al-folio to GitHub Pages
+name: Deploy homepage to GitHub Pages
 
 on:
   push:
@@ -43,7 +43,7 @@ jobs:
           updated = 0
           Dir.glob("_site/**/*.html").each do |path|
             html = File.read(path)
-            next unless html.gsub!(%r{(/assets/css/main\.css\?v=)[0-9a-f]+}) { Regexp.last_match(1) + sha }
+            next unless html.gsub!(%r{(/assets/css/(?:main|home)\.css\?v=)[0-9a-f]+}) { Regexp.last_match(1) + sha }
 
             File.write(path, html)
             updated += 1
