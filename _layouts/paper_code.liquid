@@ -21,8 +21,8 @@
     {% if entry.eprint %}
       {{ entry.archiveprefix | default: 'arXiv' | escape }} preprint {{ entry.archiveprefix | default: 'arXiv' | escape }}:{{ entry.eprint | escape }}
     {% else %}
-      {{ entry.booktitle | default: entry.journal | default: entry.abbr | escape }}
-    {% endif -%}
+      {{ entry.abbr | default: entry.booktitle | default: entry.journal | escape }}
+    {%- endif -%}
     {%- if entry.year %}, {{ entry.year | escape }}{% endif %}
   </p>
   <nav class="paper-code__links" aria-label="Links for {{ entry.title | escape }}">
