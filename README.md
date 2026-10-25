@@ -13,4 +13,4 @@ Then open <http://127.0.0.1:4000/>.
 
 Personal information lives in `_pages/about.md` and `_data/socials.yml`. Publications are managed in `_bibliography/papers.bib`.
 
-The homepage has Publications and Preprints buttons. Both lists start collapsed. Opening one closes the other; clicking the open category closes it. Papers use a monospace card with title, authors, venue and links. The BibTeX button copies the citation to the clipboard. To list a paper under Preprints, add `preprint = {true}` to its BibTeX entry; omit or remove that field when it is published. The existing `/publications/` URL remains available for old links.
+The homepage has Publications and Preprints buttons. Both lists start collapsed. Opening one closes the other; clicking the open category closes it. The page and paper cards use Google Sans. Cards show the title, authors, venue and links. The BibTeX button copies the citation to the clipboard. To list a paper under Preprints, add `preprint = {true}` to its BibTeX entry; omit or remove that field when it is published. The existing `/publications/` URL remains available for old links.

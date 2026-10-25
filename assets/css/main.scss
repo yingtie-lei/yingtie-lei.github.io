@@ -26,12 +26,14 @@
 @use "typograms";
 @use "academic-home";
 
+@import url("google-sans.css");
+
 html {
   font-size: 90%;
 }
 
 body {
-  font-family: "Roboto Mono", monospace;
+  font-family: "Google Sans", Arial, sans-serif;
 }
 
 footer.sticky-bottom {

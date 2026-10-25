@@ -1,8 +1,10 @@
+@import url("google-sans.css");
+
 :root {
   color-scheme: light;
   --link-color: #000000;
   --mentor-color: #0969da;
-  font-family: "Anthropic Serif", "Source Serif 4", Georgia, serif;
+  font-family: "Google Sans", Arial, sans-serif;
   font-size: 16px;
   color: #1e1e1e;
   background: #f5f5f5;
@@ -187,7 +189,7 @@ ol.bibliography > li {
     transform 220ms ease,
     box-shadow 220ms ease,
     border-color 220ms ease;
-  font-family: "Anthropic Serif", "Source Serif 4", Georgia, serif;
+  font-family: inherit;
   font-size: 15px;
   line-height: 1.5;
 }

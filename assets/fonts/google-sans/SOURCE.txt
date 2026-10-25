@@ -1,0 +1,5 @@
+Google Sans (unmodified regular, bold and italic TrueType files).
+Downloaded from the official Google Fonts CSS API, Google Sans v71:
+https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,400..700;1,400..700&display=swap
+Upstream: https://github.com/googlefonts/googlesans
+License: SIL Open Font License 1.1; see OFL.txt.
