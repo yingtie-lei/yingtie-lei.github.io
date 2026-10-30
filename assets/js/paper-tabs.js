@@ -36,14 +36,19 @@ async function copyCitation(text) {
 }
 
 document.querySelectorAll("[data-copy-bibtex]").forEach((button) => {
+  let statusTimeout;
   button.addEventListener("click", async () => {
     const citation = document.getElementById(button.dataset.copyBibtex);
     const status = button.parentElement.querySelector("[role='status']");
+    window.clearTimeout(statusTimeout);
     button.disabled = true;
     status.textContent = "";
     try {
       await copyCitation(citation.textContent.trim());
       status.textContent = "Copied!";
+      statusTimeout = window.setTimeout(() => {
+        status.textContent = "";
+      }, 2000);
     } catch {
       citation.hidden = false;
       status.textContent = "Select the citation below to copy.";
