@@ -1,11 +1,17 @@
 :root {
   color-scheme: light;
-  --link-color: #000000;
-  --mentor-color: #0969da;
+  --accent: #4b74b0;
+  --accent-hover: #365783;
+  --page-background: #f4f3f9;
+  --border-color: #cfd0d0;
+  --text-color: #2f3540;
+  --muted-color: #626875;
+  --link-color: #43699f;
+  --mentor-color: var(--link-color);
   font-family: "Times New Roman", Times, serif;
   font-size: 16px;
-  color: #1e1e1e;
-  background: #f5f5f5;
+  color: var(--text-color);
+  background: var(--page-background);
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -22,6 +28,9 @@ html {
 
 body {
   margin: 0;
+  background:
+    radial-gradient(ellipse at 85% 0%, rgb(75 116 176 / 8%), transparent 55%),
+    radial-gradient(ellipse at 0% 100%, rgb(207 208 208 / 20%), transparent 50%);
 }
 
 button {
@@ -81,13 +90,17 @@ button:focus-visible {
   display: block;
   width: 160px;
   height: 160px;
-  border: 1px solid #d6d6d6;
+  border: 3px solid var(--page-background);
   border-radius: 50%;
   object-fit: cover;
+  box-shadow:
+    0 0 0 1px var(--border-color),
+    0 8px 24px rgb(75 116 176 / 12%);
 }
 
 .academic-hero__name {
   margin: 0;
+  color: var(--accent);
   font-size: 40px;
   font-weight: 700;
   line-height: 1.2;
@@ -126,26 +139,44 @@ button:focus-visible {
   color: var(--link-color);
 }
 
+.academic-bio a:hover,
+.academic-bio a:focus-visible,
+.academic-social a:hover,
+.academic-social a:focus-visible {
+  color: var(--accent-hover);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .academic-research__controls {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-color);
 }
 
 .academic-research__controls button {
   margin: 6px 0;
   padding: 10px 18px;
-  border: 0;
-  border-radius: 8px;
-  background: #d6d6d6;
-  color: #1e1e1e;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--page-background);
+  color: var(--accent-hover);
   line-height: 1.45;
 }
 
+.academic-research__controls button:hover {
+  border-color: var(--accent);
+  background: #e7ebf3;
+}
+
 .academic-research__controls button[aria-expanded="true"] {
-  background: #1e1e1e;
+  border-color: var(--accent);
+  background: var(--accent);
   color: #ffffff;
+  box-shadow: 0 4px 12px rgb(75 116 176 / 18%);
 }
 
 .academic-research__panel {
@@ -154,13 +185,14 @@ button:focus-visible {
 
 .academic-research__panel h2 {
   margin: 0 0 10px;
+  color: var(--accent-hover);
   font-size: 24px;
   line-height: 1.3;
 }
 
 .academic-research__note {
   margin: 0 0 16px;
-  color: #6c6c6c;
+  color: var(--muted-color);
   font-size: 13px;
 }
 
@@ -176,13 +208,13 @@ ol.bibliography > li {
 }
 
 .paper-code {
-  --link-color: #0969da;
   position: relative;
   padding: 18px 20px;
-  border: 1px solid #c8cdd3;
-  border-radius: 6px;
-  background: #f5f5f5;
-  color: #444444;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  background: rgb(255 255 255 / 70%);
+  color: var(--text-color);
+  box-shadow: 0 3px 12px rgb(75 116 176 / 4%);
   transition:
     transform 220ms ease,
     box-shadow 220ms ease,
@@ -194,7 +226,7 @@ ol.bibliography > li {
 
 .paper-code__title {
   margin: 0 0 8px;
-  color: #24292f;
+  color: var(--accent-hover);
   font: inherit;
   font-size: 17px;
   font-weight: 700;
@@ -203,7 +235,7 @@ ol.bibliography > li {
 
 .paper-code__authors {
   margin: 0 0 6px;
-  color: #444444;
+  color: var(--text-color);
   font-size: 15px;
 }
 
@@ -216,7 +248,7 @@ ol.bibliography > li {
 
 .paper-code__venue {
   margin: 0;
-  color: #656d76;
+  color: var(--muted-color);
   font-size: 15px;
   font-style: normal;
 }
@@ -233,7 +265,7 @@ ol.bibliography > li {
 .paper-code__links a:focus-visible,
 .paper-code__copy:hover,
 .paper-code__copy:focus-visible {
-  color: #0550ae;
+  color: var(--accent-hover);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -247,17 +279,17 @@ ol.bibliography > li {
 }
 
 .paper-code__copy-status {
-  color: #656d76;
+  color: var(--muted-color);
   font-size: 14px;
 }
 
 .paper-code__citation {
   margin: 16px 0 0;
   padding: 14px;
-  border: 1px solid #e1e4e8;
-  border-radius: 6px;
-  background: #f6f8fa;
-  color: #444444;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--page-background);
+  color: var(--text-color);
   font: inherit;
   white-space: pre-wrap;
   hyphens: none;
@@ -307,16 +339,16 @@ ol.bibliography > li {
 
 .paper-code:focus-within {
   z-index: 1;
-  border-color: #aab2bc;
-  box-shadow: 0 6px 18px rgb(31 35 40 / 7%);
+  border-color: var(--accent);
+  box-shadow: 0 8px 22px rgb(75 116 176 / 12%);
   transform: translateY(-2px);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .paper-code:hover {
     z-index: 1;
-    border-color: #aab2bc;
-    box-shadow: 0 6px 18px rgb(31 35 40 / 7%);
+    border-color: var(--accent);
+    box-shadow: 0 8px 22px rgb(75 116 176 / 12%);
     transform: translateY(-2px);
   }
 }
@@ -340,14 +372,15 @@ ol.bibliography > li {
   margin: 0;
   padding: 20px;
   border-radius: 8px;
-  background: #ededed;
-  color: #626262;
+  border: 1px solid var(--border-color);
+  background: rgb(255 255 255 / 70%);
+  color: var(--muted-color);
 }
 
 .home-footer {
   min-height: 70px;
   padding: 24px;
-  color: #6c6c6c;
+  color: var(--muted-color);
   font-size: 13px;
   line-height: 22px;
   text-align: center;
