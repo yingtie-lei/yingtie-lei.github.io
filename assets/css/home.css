@@ -1,15 +1,16 @@
 :root {
   color-scheme: light;
-  --accent: #609aa1;
-  --accent-rgb: 96 154 161;
-  --accent-hover: #3c6b71;
-  --secondary: #9ec8d1;
-  --page-background: #f7f9fc;
+  --accent: #1f3a5f;
+  --accent-rgb: 31 58 95;
+  --accent-hover: #1f3a5f;
+  --secondary: #7a93a8;
+  --highlight: #e69f00;
+  --page-background: #f4f6f8;
   --border-color: var(--secondary);
-  --text-color: #2f3d43;
-  --muted-color: #586a73;
+  --text-color: #1f3a5f;
+  --muted-color: #4d6378;
   --link-color: var(--accent-hover);
-  --mentor-color: var(--link-color);
+  --mentor-color: var(--border-color);
   font-family: "Times New Roman", Times, serif;
   font-size: 16px;
   color: var(--text-color);
@@ -30,9 +31,7 @@ html {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(ellipse at 85% 0%, rgb(var(--accent-rgb) / 8%), transparent 55%),
-    radial-gradient(ellipse at 0% 100%, rgb(158 200 209 / 20%), transparent 50%);
+  background: var(--page-background);
 }
 
 button {
@@ -63,7 +62,7 @@ a:hover,
 a:focus-visible,
 .paper-code__copy:hover,
 .paper-code__copy:focus-visible {
-  text-decoration-color: currentcolor;
+  text-decoration-color: var(--highlight);
 }
 
 a:focus-visible,
@@ -123,6 +122,13 @@ button:focus-visible {
   letter-spacing: normal;
 }
 
+.academic-hero__intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 12px;
+}
+
 .academic-hero__native-name {
   display: inline-block;
   font-size: 0.7em;
@@ -144,15 +150,37 @@ button:focus-visible {
 .academic-social {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 18px;
-  margin: 18px 0 20px;
+  gap: 4px;
+  margin: 0;
+}
+
+.academic-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 32px;
+  text-decoration: none;
+  transition: opacity 160ms ease;
 }
 
 .academic-social a,
 .academic-social a:visited,
 .academic-social a:hover,
 .academic-social a:focus {
-  color: var(--link-color);
+  color: var(--accent);
+}
+
+.academic-social a:hover,
+.academic-social a:focus-visible {
+  opacity: 0.7;
+}
+
+.academic-social svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: currentcolor;
 }
 
 .academic-research__controls {
@@ -187,7 +215,7 @@ button:focus-visible {
   bottom: -1px;
   left: 0;
   height: 2px;
-  background: currentcolor;
+  background: var(--highlight);
   content: "";
   opacity: 0;
   transition: opacity 160ms ease;
@@ -221,6 +249,7 @@ button:focus-visible {
 }
 
 .academic-research__controls button[aria-expanded="true"]::after {
+  color: var(--highlight);
   transform: rotate(225deg);
 }
 
@@ -301,7 +330,7 @@ ol.bibliography > li {
 
 .paper-code__venue {
   margin: 0;
-  color: var(--muted-color);
+  color: var(--text-color);
   font-size: 15px;
   font-style: normal;
 }
@@ -358,6 +387,7 @@ ol.bibliography > li {
 
 @media (prefers-reduced-motion: reduce) {
   a,
+  .academic-social a,
   .paper-code,
   .paper-code__copy,
   .academic-research__controls button,
@@ -397,10 +427,6 @@ ol.bibliography > li {
 
   .academic-hero__name {
     font-size: 34px;
-  }
-
-  .academic-social {
-    gap: 8px 14px;
   }
 
   .paper-code {

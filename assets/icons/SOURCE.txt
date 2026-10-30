@@ -1,0 +1,4 @@
+Google Scholar glyph: Academicons by James Walsh.
+Source: https://github.com/jpswalsh/academicons/blob/master/svg/google-scholar.svg
+License: SIL Open Font License 1.1 (see OFL.txt).
+The glyph is cut out of a circle, with currentColor inherited from the name color.

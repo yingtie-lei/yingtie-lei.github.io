@@ -56,24 +56,44 @@ layout: null
                   <span class="academic-hero__native-name">({{ page.native_name }})</span>
                 {%- endif %}
               </h1>
+              {% if page.social %}
+                <nav class="academic-social" aria-label="Academic and social profiles">
+                  {% if site.data.socials.scholar_userid %}
+                    <a
+                      href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid | escape }}"
+                      aria-label="Google Scholar"
+                      title="Google Scholar"
+                    >
+                      <svg viewBox="-64 0 512 512" width="20" height="20" aria-hidden="true" focusable="false">
+                        <use href="{{ '/assets/icons/google-scholar.svg' | relative_url }}#scholar-icon"/>
+                      </svg>
+                    </a>
+                  {% endif %}
+                  {% if site.data.socials.linkedin_username %}
+                    <a
+                      href="https://www.linkedin.com/in/{{ site.data.socials.linkedin_username | escape }}/"
+                      aria-label="LinkedIn"
+                      title="LinkedIn"
+                    >
+                      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                        <path fill-rule="evenodd" d="M5 0h14a5 5 0 0 1 5 5v14a5 5 0 0 1-5 5H5a5 5 0 0 1-5-5V5a5 5 0 0 1 5-5ZM20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286ZM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124ZM7.119 20.452H3.555V9h3.564Z"/>
+                      </svg>
+                    </a>
+                  {% endif %}
+                  {% if site.data.socials.email %}
+                    <a href="mailto:{{ site.data.socials.email | escape }}" aria-label="Email" title="Email">
+                      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+                        <rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                        <path d="m3 5 9 7 9-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                      </svg>
+                    </a>
+                  {% endif %}
+                </nav>
+              {% endif %}
             </div>
           </section>
 
           <div class="academic-bio">{{ content }}</div>
-
-          {% if page.social %}
-            <nav class="academic-social" aria-label="Academic and social profiles">
-              {% if site.data.socials.scholar_userid %}
-                <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid | escape }}">[Google Scholar]</a>
-              {% endif %}
-              {% if site.data.socials.linkedin_username %}
-                <a href="https://www.linkedin.com/in/{{ site.data.socials.linkedin_username | escape }}/">[LinkedIn]</a>
-              {% endif %}
-              {% if site.data.socials.email %}
-                <a href="mailto:{{ site.data.socials.email | escape }}">[Email]</a>
-              {% endif %}
-            </nav>
-          {% endif %}
 
           <section class="academic-research" aria-label="Research papers" data-paper-disclosures>
             <div class="academic-research__controls" aria-label="Paper categories">
