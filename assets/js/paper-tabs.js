@@ -6,15 +6,18 @@ document.querySelectorAll("[data-paper-disclosures]").forEach((section) => {
   panels.forEach((panel) => container.appendChild(panel));
   section.appendChild(container);
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let activePanel = null;
   let heightAnimation;
   let fades = [];
 
   function showPanel(nextPanel) {
+    const switching = activePanel !== null && nextPanel !== null && activePanel !== nextPanel;
+    activePanel = nextPanel;
     const startHeight = container.getBoundingClientRect().height;
     const opacities = panels.map((panel) => (panel.hidden ? 0 : Number(getComputedStyle(panel).opacity)));
-    // Keep the document height stable while measuring and replacing the panels.
     container.style.height = `${startHeight}px`;
     heightAnimation?.cancel();
+    heightAnimation = undefined;
     fades.forEach((fade) => fade.cancel());
     fades = [];
 
@@ -25,9 +28,9 @@ document.querySelectorAll("[data-paper-disclosures]").forEach((section) => {
       });
       fades.forEach((fade) => fade.cancel());
       fades = [];
+      container.style.height = nextPanel ? "" : "0px";
       heightAnimation?.cancel();
       heightAnimation = undefined;
-      container.style.height = "";
     }
 
     panels.forEach((panel, index) => {
@@ -36,29 +39,23 @@ document.querySelectorAll("[data-paper-disclosures]").forEach((section) => {
       panel.style.position = panel === nextPanel ? "" : "absolute";
     });
 
-    if (reducedMotion.matches || typeof container.animate !== "function") {
+    if (!switching || reducedMotion.matches || typeof container.animate !== "function") {
       finish();
       return;
     }
 
-    const nextStyle = nextPanel ? getComputedStyle(nextPanel) : null;
-    const endHeight = nextPanel ? nextPanel.getBoundingClientRect().height + parseFloat(nextStyle.marginTop) + parseFloat(nextStyle.marginBottom) : 0;
-    const timing = {
-      duration: 350,
-      easing: "cubic-bezier(0.33, 0, 0.67, 1)",
-      fill: "both",
-    };
+    const nextStyle = getComputedStyle(nextPanel);
+    const endHeight = nextPanel.getBoundingClientRect().height + parseFloat(nextStyle.marginTop) + parseFloat(nextStyle.marginBottom);
+    const timing = { duration: 200, easing: "linear", fill: "both" };
     fades = panels
       .filter((panel) => !panel.hidden)
-      .map((panel) =>
-        panel.animate([{ opacity: opacities[panels.indexOf(panel)] }, { opacity: panel === nextPanel ? 1 : 0 }], { ...timing, easing: "linear" })
-      );
+      .map((panel) => panel.animate([{ opacity: opacities[panels.indexOf(panel)] }, { opacity: panel === nextPanel ? 1 : 0 }], timing));
     const animation = container.animate(
       [
         { height: `${startHeight}px`, overflow: "hidden" },
         { height: `${endHeight}px`, overflow: "hidden" },
       ],
-      timing
+      { ...timing, easing: "cubic-bezier(0.33, 0, 0.67, 1)" }
     );
     heightAnimation = animation;
     animation.onfinish = () => {
