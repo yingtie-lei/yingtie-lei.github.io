@@ -1,7 +1,13 @@
 ---
 ---
 <article class="paper-code" aria-labelledby="paper-title-{{ entry.key | escape }}">
-  <h3 id="paper-title-{{ entry.key | escape }}" class="paper-code__title">{{ entry.title | escape }}</h3>
+  <h3 id="paper-title-{{ entry.key | escape }}" class="paper-code__title">
+    {% if entry.html -%}
+      <a href="{{ entry.html | escape }}">{{ entry.title | escape }}</a>
+    {%- else -%}
+      {{- entry.title | escape -}}
+    {%- endif %}
+  </h3>
   <p class="paper-code__authors">
     {%- for author in entry.author_array -%}
       {%- assign clean_last_name = author.last | remove: '*' -%}
@@ -29,7 +35,7 @@
   </p>
   <nav class="paper-code__links" aria-label="Links for {{ entry.title | escape }}">
     {% if entry.html -%}
-      <a href="{{ entry.html | escape }}">[Paper]</a>
+      <a href="{{ entry.html | escape }}">paper</a>
     {%- endif %}
     {% if entry.pdf %}
       {% if entry.pdf contains '://' -%}
@@ -37,19 +43,19 @@
       {%- else -%}
         {%- assign pdf_url = entry.pdf | prepend: '/assets/pdf/' | relative_url -%}
       {%- endif %}
-      <a href="{{ pdf_url | escape }}">[PDF]</a>
+      <a href="{{ pdf_url | escape }}">pdf</a>
     {% endif %}
     {% if entry.arxiv -%}
-      <a href="https://arxiv.org/abs/{{ entry.arxiv | escape }}">[arXiv]</a>
+      <a href="https://arxiv.org/abs/{{ entry.arxiv | escape }}">arXiv</a>
     {%- endif %}
     {% if entry.doi -%}
-      <a href="https://doi.org/{{ entry.doi | escape }}">[DOI]</a>
+      <a href="https://doi.org/{{ entry.doi | escape }}">doi</a>
     {%- endif %}
     {% if entry.code -%}
-      <a href="{{ entry.code | escape }}">[Code]</a>
+      <a href="{{ entry.code | escape }}">code</a>
     {%- endif %}
     {% if entry.website -%}
-      <a href="{{ entry.website | escape }}">[Project]</a>
+      <a href="{{ entry.website | escape }}">project</a>
     {%- endif %}
     <button
       type="button"
@@ -57,9 +63,9 @@
       data-copy-bibtex="bibtex-{{ entry.key | escape }}"
       aria-label="Copy BibTeX for {{ entry.title | escape }}"
     >
-      [BibTeX]
+      bibtex
     </button>
     <span class="paper-code__copy-status" role="status" aria-live="polite"></span>
   </nav>
-  <pre id="bibtex-{{ entry.key | escape }}" class="paper-code__citation" hidden>{{- entry.bibtex | hideCustomBibtex | escape -}}</pre>
+  <pre id="bibtex-{{ entry.key | escape }}" class="paper-code__citation" hidden>{{- entry.bibtex | escape -}}</pre>
 </article>

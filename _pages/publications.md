@@ -1,20 +1,20 @@
 ---
-layout: page
+layout: null
 permalink: /publications/
-title: publications
-description: Research publications by Yingtie Lei, listed in reverse chronological order.
-nav: false
-nav_order: 2
+sitemap: false
 ---
 
-<!-- _pages/publications.md -->
-
-<!-- Bibsearch Feature -->
-
-{% include bib_search.liquid %}
-
-<div class="publications">
-
-{% bibliography %}
-
-</div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="0; url={{ '/' | relative_url }}#publications-panel">
+    <meta name="robots" content="noindex">
+    <link rel="canonical" href="{{ '/' | absolute_url }}#publications-panel">
+    <title>Publications — Yingtie Lei</title>
+  </head>
+  <body>
+    <p><a href="{{ '/' | relative_url }}#publications-panel">View Yingtie Lei's publications</a>.</p>
+  </body>
+</html>

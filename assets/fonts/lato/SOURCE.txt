@@ -1,0 +1,11 @@
+Lato by Lukasz Dziedzic, licensed under the SIL Open Font License 1.1.
+
+Locally hosted Latin regular (400) and bold (700) WOFF2 files, using the
+same Google Fonts resources as Home-Page-Template:
+https://github.com/zhengchen1999/Home-Page-Template
+
+Regular: https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjx4wXiWtFCc.woff2
+Bold: https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2
+License source: https://github.com/google/fonts/blob/main/ofl/lato/OFL.txt
+
+See OFL.txt for the full license.
