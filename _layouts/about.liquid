@@ -17,8 +17,9 @@ layout: null
       <meta name="google-site-verification" content="{{ site.google_site_verification | escape }}">
     {% endif %}
     <link rel="canonical" href="{{ page.url | absolute_url }}">
-    <link rel="icon" href="{{ '/assets/img/site-logo-favicon.png' | relative_url }}">
-    <link rel="apple-touch-icon" href="{{ '/assets/img/site-logo.png' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="64x64" href="{{ '/assets/img/site-logo-favicon.png' | relative_url }}?v={{ site.time | date: '%s' }}">
+    <link rel="icon" type="image/svg+xml" sizes="any" href="{{ '/assets/img/site-logo.svg' | relative_url }}?v={{ site.time | date: '%s' }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/site-logo.png' | relative_url }}?v={{ site.time | date: '%s' }}">
     <meta property="og:title" content="{{ site.first_name | escape }} {{ site.last_name | escape }}">
     <meta property="og:description" content="{{ site.description | strip | escape }}">
     <meta property="og:type" content="website">

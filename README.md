@@ -25,6 +25,7 @@ The build writes `_site/`. GitHub Pages builds and deploys it through `.github/w
 - Contact links: `_data/socials.yml`
 - Publications: `_bibliography/papers.bib`
 - Portrait and site images: `assets/img/`
+- Website icon: `assets/img/site-logo.svg`, cropped to the left Block O from `TheOhioStateUniversity-Horiz-RGBHEX.svg`, with PNG fallbacks for browser and Apple icons.
 - Markup: `_layouts/about.liquid` and `_layouts/paper_code.liquid`
 - Styling: `assets/css/home.css`
 - BibTeX copying: `assets/js/citations.js`
