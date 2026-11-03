@@ -1,0 +1,7 @@
+Raleway by the Raleway Project Authors, licensed under the SIL Open Font License 1.1.
+
+Downloaded from Google Fonts for local hosting.
+Stylesheet: https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap
+Regular: https://fonts.gstatic.com/s/raleway/v37/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaooCP.ttf
+Bold: https://fonts.gstatic.com/s/raleway/v37/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVs9pYCP.ttf
+License source: https://github.com/google/fonts/blob/main/ofl/raleway/OFL.txt
