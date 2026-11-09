@@ -1,23 +1,8 @@
-﻿@font-face {
-  font-family: Raleway;
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../fonts/raleway/Raleway-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: Raleway;
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("../fonts/raleway/Raleway-Bold.ttf") format("truetype");
-}
-
-:root {
+﻿:root {
   color-scheme: light;
-  font-family: Raleway, Verdana, Helvetica, sans-serif;
+  font-family: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
   font-size: 14px;
+  font-weight: 400;
   color: #222;
   background: #fff;
   -webkit-text-size-adjust: 100%;
@@ -33,6 +18,11 @@
 body {
   margin: 0;
   line-height: 1.55;
+}
+
+b,
+strong {
+  font-weight: 700;
 }
 
 a,
@@ -147,6 +137,10 @@ ol.bibliography > li {
 .paper-code__authors,
 .paper-code__venue {
   margin: 2px 0 0;
+}
+
+.paper-code__venue {
+  font-weight: 700;
 }
 
 .paper-code__links {

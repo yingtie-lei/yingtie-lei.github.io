@@ -1,6 +1,6 @@
 # Yingtie Lei — Academic Homepage
 
-A minimal Jekyll site adapted from [Home-Page-Template](https://github.com/zhengchen1999/Home-Page-Template), originally based on [Jon Barron's website](https://jonbarron.info/). White background, locally hosted Raleway fonts, blue links, and an 800px responsive layout. Publications and preprints are visible immediately.
+A minimal Jekyll site adapted from [Home-Page-Template](https://github.com/zhengchen1999/Home-Page-Template), originally based on [Jon Barron's website](https://jonbarron.info/). White background, a Palatino system font stack, blue links, and an 800px responsive layout. Publications and preprints are visible immediately.
 
 ## Development
 
@@ -32,4 +32,4 @@ The build writes `_site/`. GitHub Pages builds and deploys it through `.github/w
 
 Add `preprint = {true}` to a bibliography entry for Preprints; omit it for Publications. Preprints sort newest first using `year` and the arXiv identifier in `eprint`. The old `/publications/` URL redirects to the homepage's publications section. The BibTeX button copies the citation and shows selectable text if clipboard access fails.
 
-Only Jekyll Scholar and Jekyll Sitemap are loaded as plugins. There is no al-folio theme, Sass customization, external font request, or JavaScript build step. Raleway's source and license are in `assets/fonts/raleway/`. The previous Lato font's source and license remain in `assets/fonts/lato/`; the original MIT notice is retained in `LICENSE`.
+Only Jekyll Scholar and Jekyll Sitemap are loaded as plugins. There is no al-folio theme, Sass customization, external font request, or JavaScript build step. The font stack uses installed Palatino Linotype or Palatino, falling back to Book Antiqua, Georgia, and the browser's default serif font. The previous Raleway and Lato fonts' sources and licenses remain in `assets/fonts/raleway/` and `assets/fonts/lato/`; the original MIT notice is retained in `LICENSE`.

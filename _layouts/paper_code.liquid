@@ -24,14 +24,15 @@
     {%- endfor -%}
   </p>
   <p class="paper-code__venue">
-    <strong>
-      {%- if entry.eprint -%}
-        {{ entry.abbr | default: entry.archiveprefix | default: 'arXiv' | escape }}
-      {%- else -%}
-        {{ entry.abbr | default: entry.booktitle | default: entry.journal | escape }}
-      {%- endif -%}
-      {%- if entry.year %} {{ entry.year | escape }}{% endif -%}
-    </strong>
+    {%- if entry.eprint -%}
+      {%- assign venue = entry.abbr | default: entry.archiveprefix | default: 'arXiv' -%}
+    {%- else -%}
+      {%- assign venue = entry.abbr | default: entry.booktitle | default: entry.journal -%}
+    {%- endif -%}
+    <em>
+      {{- venue | escape -}}
+      {%- if entry.year %} '{{ entry.year | append: '' | slice: -2, 2 | escape }}{% endif -%}
+    </em>
   </p>
   <nav class="paper-code__links" aria-label="Links for {{ entry.title | escape }}">
     {% if entry.html -%}
