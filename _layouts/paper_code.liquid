@@ -29,14 +29,12 @@
     {%- else -%}
       {%- assign venue = entry.abbr | default: entry.booktitle | default: entry.journal -%}
     {%- endif -%}
-    <em>
-      {{- venue | escape -}}
-      {%- if entry.year %} '{{ entry.year | append: '' | slice: -2, 2 | escape }}{% endif -%}
-    </em>
+    {{- venue | escape -}}
+    {%- if entry.year %} '{{ entry.year | append: '' | slice: -2, 2 | escape }}{% endif -%}
   </p>
   <nav class="paper-code__links" aria-label="Links for {{ entry.title | escape }}">
     {% if entry.html -%}
-      <a href="{{ entry.html | escape }}">paper</a>
+      <a class="paper-code__badge paper-code__badge--primary" href="{{ entry.html | escape }}">paper</a>
     {%- endif %}
     {% if entry.pdf %}
       {% if entry.pdf contains '://' -%}
@@ -44,23 +42,23 @@
       {%- else -%}
         {%- assign pdf_url = entry.pdf | prepend: '/assets/pdf/' | relative_url -%}
       {%- endif %}
-      <a href="{{ pdf_url | escape }}">pdf</a>
+      <a class="paper-code__badge paper-code__badge--primary" href="{{ pdf_url | escape }}">pdf</a>
     {% endif %}
     {% if entry.arxiv -%}
-      <a href="https://arxiv.org/abs/{{ entry.arxiv | escape }}">arXiv</a>
+      <a class="paper-code__badge paper-code__badge--primary" href="https://arxiv.org/abs/{{ entry.arxiv | escape }}">arXiv</a>
     {%- endif %}
     {% if entry.doi -%}
-      <a href="https://doi.org/{{ entry.doi | escape }}">doi</a>
+      <a class="paper-code__badge paper-code__badge--primary" href="https://doi.org/{{ entry.doi | escape }}">doi</a>
     {%- endif %}
     {% if entry.code -%}
-      <a href="{{ entry.code | escape }}">code</a>
+      <a class="paper-code__badge paper-code__badge--dark" href="{{ entry.code | escape }}">code</a>
     {%- endif %}
     {% if entry.website -%}
-      <a href="{{ entry.website | escape }}">project</a>
+      <a class="paper-code__badge paper-code__badge--dark" href="{{ entry.website | escape }}">project</a>
     {%- endif %}
     <button
       type="button"
-      class="paper-code__copy"
+      class="paper-code__badge paper-code__badge--light paper-code__copy"
       data-copy-bibtex="bibtex-{{ entry.key | escape }}"
       aria-label="Copy BibTeX for {{ entry.title | escape }}"
     >

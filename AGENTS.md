@@ -4,7 +4,7 @@ This repository is Yingtie Lei's personal academic homepage, adapted from
 https://github.com/zhengchen1999/Home-Page-Template. It is a small Jekyll site,
 not an al-folio starter or gem-based theme.
 
-- Keep the homepage simple: white background, blue text links, Lato, and a responsive 800px layout.
+- Keep the homepage simple: white background, red/black/gray theme (red links with amber-gold hover), URW Palladio L, and a responsive 800px layout.
 - Biography and profile settings live in `_pages/about.md`; contact links live in `_data/socials.yml`.
 - Publications have one source of truth: `_bibliography/papers.bib`. Keep `preprint = {true}` for preprints.
 - Homepage and paper markup live in `_layouts/`; CSS and citation behavior live in `assets/css/home.css` and `assets/js/citations.js`.

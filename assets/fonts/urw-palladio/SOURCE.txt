@@ -1,0 +1,14 @@
+URW Palladio L (URWPalladioL-Roma, -Ital, -Bold, -BoldItal), version 1.05
+Copyright 1999 by (URW)++ Design & Development.
+
+Licensed under the GNU General Public License, with the following font exception:
+  "As a special exception, permission is granted to include this font program
+  in a Postscript or PDF file that consists of a document that contains text to
+  be displayed or printed using this font, regardless of the conditions or
+  license applying to the document itself."
+
+Source: TeX Live 2026, texmf-dist/fonts/type1/urw/palatino/
+  uplr8a.pfb, uplri8a.pfb, uplb8a.pfb, uplbi8a.pfb
+
+The WOFF2 files here were converted from those Type 1 (.pfb) files for web use:
+the outlines and advance widths are unchanged; kerning and hinting are not included.
