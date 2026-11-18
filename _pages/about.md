@@ -3,7 +3,7 @@ layout: about
 permalink: /
 
 profile:
-  image: profile.png
+  image: profile-white.jpg
 
 social: true
 ---
